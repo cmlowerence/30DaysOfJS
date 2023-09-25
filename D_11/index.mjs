@@ -1,3 +1,4 @@
+import myCountries from "./countries_data.mjs";
 /* Destructuring and Spreading */
 console.log('Day 11 JS tutorial. \n Destructuring and Spreading');
 
@@ -217,7 +218,7 @@ console.log('Destructuring object during iteration \n')
         }
     ]
 
-    for ({ task, time, completed } of todoList) {
+    for (const { task, time, completed } of todoList) {
         console.log(task, time, completed);
     }
 }
@@ -279,7 +280,7 @@ console.log('Spread Operator to get rest of array element\n');
     // sumAllNum(1,2,3,4,5,6,7,8,9)
     const sum = (...args) => {
         let sum = 0;
-        for (num of args) {
+        for (let num of args) {
             sum += num
         }
         return sum
@@ -288,84 +289,221 @@ console.log('Spread Operator to get rest of array element\n');
 }
 
 console.log('\n\n\n')
+{
+
+}
 /* ================== EXERCISE ====================== */
 console.log('================== EXERCISE ======================\n')
 
+const constants = [2.72, 3.14, 9.81, 37, 100]
+const countries = ['Finland', 'Estonia', 'Sweden', 'Denmark', 'Norway']
+const rectangle = {
+    width: 20,
+    height: 10,
+    area: 200,
+    perimeter: 60
+}
+const users = [
+    {
+        name: 'Brook',
+        scores: 75,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 16
+    },
+    {
+        name: 'Alex',
+        scores: 80,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 18
+    },
+    {
+        name: 'David',
+        scores: 75,
+        skills: ['HTM', 'CSS'],
+        age: 22
+    },
+    {
+        name: 'John',
+        scores: 85,
+        skills: ['HTML'],
+        age: 25
+    },
+    {
+        name: 'Sara',
+        scores: 95,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 26
+    },
+    {
+        name: 'Martha',
+        scores: 80,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 18
+    },
+    {
+        name: 'Thomas',
+        scores: 90,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 20
+    }
+]
 
 // Exercise Level 1
 console.log('======================= Exercise Level 1 ======================\n\n')
 {
-    const constants = [2.72, 3.14, 9.81, 37, 100]
-    const countries = ['Finland', 'Estonia', 'Sweden', 'Denmark', 'Norway']
-    const rectangle = {
-        width: 20,
-        height: 10,
-        area: 200,
-        perimeter: 60
-    }
-    const users = [
-        {
-            name: 'Brook',
-            scores: 75,
-            skills: ['HTM', 'CSS', 'JS'],
-            age: 16
-        },
-        {
-            name: 'Alex',
-            scores: 80,
-            skills: ['HTM', 'CSS', 'JS'],
-            age: 18
-        },
-        {
-            name: 'David',
-            scores: 75,
-            skills: ['HTM', 'CSS'],
-            age: 22
-        },
-        {
-            name: 'John',
-            scores: 85,
-            skills: ['HTML'],
-            age: 25
-        },
-        {
-            name: 'Sara',
-            scores: 95,
-            skills: ['HTM', 'CSS', 'JS'],
-            age: 26
-        },
-        {
-            name: 'Martha',
-            scores: 80,
-            skills: ['HTM', 'CSS', 'JS'],
-            age: 18
-        },
-        {
-            name: 'Thomas',
-            scores: 90,
-            skills: ['HTM', 'CSS', 'JS'],
-            age: 20
-        }
-    ]
 
     // Q1_ Destructure and assign the elements of constants array to e, pi, gravity, humanBodyTemp, waterBoilingTemp
 
     console.log('Q1_ Destructure and assign the elements of constants array to e, pi, gravity, humanBodyTemp, waterBoilingTemp\n')
-    let [e,pi,gravity,humanBodyTemp,waterBoilingTemp] = constants
-    console.log(e,pi,gravity,humanBodyTemp,waterBoilingTemp,'\n\n');
+    let [e, pi, gravity, humanBodyTemp, waterBoilingTemp] = constants
+    console.log(e, pi, gravity, humanBodyTemp, waterBoilingTemp, '\n\n');
 
     // Q2_ Destructure and assign the elements of countries array to fin, est, sw, den, nor
     console.log('Q2_ Destructure and assign the elements of countries array to fin, est, sw, den, nor\n')
 
-    let [fin,est,sw,den,nor] = countries;
-    console.log(fin,est,sw,den,nor,'\n\n')
+    let [fin, est, sw, den, nor] = countries;
+    console.log(fin, est, sw, den, nor, '\n\n')
 
     // Q3_ Destructure teh rectangle object by its properties or keys
-    console.log('Q3_ Destructure teh rectangle object by its properties or keys\n');
+    console.log('Q3_ Destructure the rectangle object by its properties or keys\n');
 
-    let {width:w,height:h,area:a,perimeter:p} = rectangle
-    console.log(w,h,a,p,'\n');
+    let { width: w, height: h, area: a, perimeter: p } = rectangle
+    console.log(w, h, a, p, '\n');
+}
 
-    
+// Exercise Level 2
+console.log('\n\n\nExercise Level 2\n\n');
+{
+    // Q1_ Iterate through teh users array and get all the keys of the object using destructuring
+    console.log('Q1_ Iterate through the users array and get all the keys of the object using destructuring\n');
+    // console.log(users)
+    for (const { name: n, scores: s, skills: sk, age: a } of users) {
+        console.log(n, s, sk, a)
+    }
 
+    // Q2_ Find the person who have less than 2 skills 
+    console.log('\n\n\nQ2_ Find the person who have less than 2 skills\n')
+    const personList = [];
+    for (let user of users) {
+        if (user.skills.length < 2) {
+            personList.push(user)
+        }
+    }
+    console.log(personList);
+}
+
+// Exercise Level 3
+console.log('\n\n\nExercise Level 3\n\n')
+{
+    // Q1_ Destructure the countries object print name, capital, population and languages of all countries
+    console.log('\n\nQ1_ Destructure the countries object print name, capital, population and languages of all countries\n')
+    {
+        for (const country of myCountries) {
+            let { name: n, capital: c, languages: ln, population: p } = country
+            console.log(n, c, ln, p)
+        }
+    }
+
+    // Q2_ A junior developer structure student name, skills and score in array of arrays which may not be easy to read. Destructure the following array name to name , skills array to skills, scores array to scores, JavaScript score to jsScore and React score to reactScore variable in one line
+    console.log('\n\nQ2_ A junior developer structure student name, skills and score in array of arrays which may not be easy to read. Destructure the following array name to name , skills array to skills, scores array to scores, JavaScript score to jsScore and React score to reactScore variable in one line\n')
+    {
+        const student = ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
+        let [name, skills, scores] = student;
+        let [, , jsScore, reactScore] = scores;
+        console.log(name, skills, jsScore, reactScore)
+    }
+
+    // Write a function called convertArrayToObject which can convert the array to a structure object
+    console.log('\n\nWrite a function called convertArrayToObject which can convert the array to a structure object\n');
+    {
+        const students = [
+            ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]],
+            ['John', ['HTM', 'CSS', 'JS', 'React'], [85, 80, 85, 80]]
+        ]
+        let structuredObj = []
+        students.forEach((e) => {
+            let obj = new Object();
+            let [n, skills, scores] = e
+            // let [html,css,js,react] = skills
+            // let [htmlScore,cssScore,jsScore,reactScore] = scores;
+            obj['name'] = n;
+            // let skillObj = new Object();
+            // skillObj[html] = htmlScore;
+            // skillObj[css] = cssScore;
+            // skillObj[js] = jsScore;
+            // skillObj[react] = reactScore;
+            // obj['skills'] = skillObj;
+            obj['skills'] = skills;
+            obj['scores'] = scores
+            structuredObj.push(obj)
+        })
+        console.log(structuredObj)
+    }
+
+    /* Q4_ Copy the student object to newStudent without mutating the original object. In the new object add the following: 
+    => Add Bootstrap with level 8 to the front end skill sets
+    => Add Express with level 9 to the back end skill sets
+    => Add SQL with level 8 to the data base skill sets
+    => Add SQL without level to the data science skill sets
+    */
+    console.log(`\n\nQ4_ Copy the student object to newStudent without mutating the original object. In the new object add the following: 
+   => Add Bootstrap with level 8 to the front end skill sets
+   => Add Express with level 9 to the back end skill sets
+   => Add SQL with level 8 to the data base skill sets
+   => Add SQL without level to the data science skill sets\n`)
+    {
+        const student = {
+            name: 'David',
+            age: 25,
+            skills: {
+                frontEnd: [
+                    { skill: 'HTML', level: 10 },
+                    { skill: 'CSS', level: 8 },
+                    { skill: 'JS', level: 8 },
+                    { skill: 'React', level: 9 }
+                ],
+                backEnd: [
+                    { skill: 'Node', level: 7 },
+                    { skill: 'GraphQL', level: 8 },
+                ],
+                dataBase: [
+                    { skill: 'MongoDB', level: 7.5 },
+                ],
+                dataScience: ['Python', 'R', 'D3.js']
+            }
+        }
+
+        const newStudent = {
+            ...student,
+            skills: {
+                ...student.skills,
+                frontEnd: [
+                    ...student.skills.frontEnd,
+                    { skill: 'Bootstrap', level: 8 }
+                ],
+                backEnd: [
+                    ...student.skills.backEnd,
+                    { skill: 'Express', level: 9 }
+                ],
+                dataBase: [
+                    ...student.skills.dataBase,
+                    { skill: 'SQL', level: 8 }
+                ],
+                dataScience: [
+                    ...student.skills.dataScience, 'SQL']
+            }
+        }
+
+        // Alternate way: 
+
+        // let {name,age,skills} = newStudent;
+        // let {frontEnd,backEnd,dataBase,dataScience} = skills;
+        // frontEnd.push({'skill':'Bootstrap','level':8})
+        // backEnd.push({'skill':'Express','level':9})
+        // dataBase.push({'skill':'SQL','level':8})
+        // dataScience.push('SQL')
+        
+        console.log(newStudent);
+
+    }
 }
