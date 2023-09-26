@@ -202,5 +202,22 @@ D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher.'
                 console.log('%cindex.mjs line:202 matches', 'color: #26bfa5;', matches);
             }
         }
+
+        // Zero or more times (*)
+        {
+            const pattern = /[a].*/g //. any character except new line, * means any character zero or more times
+            const txt = 'Apple and banana are fruits';
+            const matches = txt.match(pattern);
+            console.log('%cindex.mjs line:211 matches', 'color: #26bfa5;', matches);
+        }
+
+        // Zero or One time (?)
+        {
+            const txt = 'I am not sure if there is a convention how to write the word e-mail.\
+            Some people write it email other may write it as Email or E-mail. ';
+            const pattern = /[Ee]-?mail/g ;//? means optional
+            const matches = txt.match(pattern);
+            console.log('%cindex.mjs line:220 matches', 'color: #26bfa5;', matches);
+        }
     }
 }
