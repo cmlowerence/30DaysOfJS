@@ -176,5 +176,31 @@ D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher.'
                 console.log('%cindex.mjs line:176 matches', 'color: #26bfa5;', matches);
             }
         }
+
+        // One or more times (+)
+        console.log('\n\n✌️One or more times (+) --->\n');
+        {
+            const pattern = /\d+/g  // '/d' means digits
+            const text = 'This regular expression example was made in January 12, 2020.';
+            const matches = text.match(pattern);
+            console.log('%cindex.mjs line:186 matches', 'color: #26bfa5;', matches);
+        }
+
+        // Period (.)
+        console.log('\n\n✌️Period (.) --->\n');
+
+        {
+            const pattern= /[a]./g  // here square Bracket means a and . means any character except new line.
+            const text = 'Apple and banana are fruits.'
+            const matches = text.match(pattern);
+            console.log('%cindex.mjs line:196 matches', 'color: #26bfa5;', matches);
+
+            // Using . and +
+            {
+                const pattern = /[a].+/g;
+                const matches = text.match(pattern);
+                console.log('%cindex.mjs line:202 matches', 'color: #26bfa5;', matches);
+            }
+        }
     }
 }
