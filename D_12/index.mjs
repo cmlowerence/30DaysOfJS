@@ -368,4 +368,36 @@ D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher.'
         }
         console.log('%cindex.mjs line:350 tenMostFrequentWords(paragraph,10)', 'color: #26bfa5;', tenMostFrequentWords(paragraph,10));
     }
+
+    // Exercise Level 3
+    console.log('\n\n✌️Exercise Level 3 --->\n');
+    {
+        const Q1_ = 'Write a function which cleans text. Clean the following text. After cleaning, count three most frequent words in the string.'
+        console.log('%cindex.mjs line:376 Q1_', 'color: #26bfa5;', Q1_);
+        let sentence = `%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?`
+        {
+            sentence = sentence.replace(/[^a-zA-Z\s.]/g,'');
+            console.log('%cindex.mjs line:380 sentence', 'color: #26bfa5;', sentence);
+
+            const highestOccurrence = (sentence)=>{
+                let sentenceList = sentence.match(/\b\w+\b/g);
+                let sentenceSort = new Set(sentenceList);
+                let counts = [];
+                sentenceSort.forEach(e=>{
+                    let dup = sentenceList.filter((a)=>a===e);
+                    let dupCount = dup.length;
+                    counts.push([['word',e],['count',dupCount]]);
+                })
+                counts = counts.sort((a,b)=> b[1][1]-a[1][1])
+                const res = [];
+                counts.forEach(e=>{
+                    let obj = Object.fromEntries(e);
+                    res.push(obj)
+                })
+                return res
+            }
+
+            console.log('%cindex.mjs line:400 highestOccurrence(sentence)', 'color: #26bfa5;', highestOccurrence(sentence));
+        }
+    }
 }
