@@ -254,10 +254,10 @@ D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher.'
 
                 // Negation
                 {
-                    const txt = 'This regualar experssion example was made in September 27, 2023';
+                    const txt = 'This regular expression example was made in September 27, 2023';
                     const pattern = /[^A-Za-z,. ]+/g; // Here ^ means not A to Z, not a to z, no space, no comma, no period
                     const matches = txt.match(pattern);
-                    console.log('%cindex.mjs line:260 matches','color: #f00;', matches);
+                    console.log('%cindex.mjs line:260 matches', 'color: #f00;', matches);
                 }
             }
 
@@ -268,9 +268,104 @@ D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher.'
                     let pattern = /^[A-Z][a-z]{3,12}$/;
                     let name = 'Chudamani';
                     let result = pattern.test(name);
-                    console.log('%cindex.mjs line:271 result','color: #f00;', result);
+                    console.log('%cindex.mjs line:271 result', 'color: #f00;', result);
                 }
             }
         }
+    }
+}
+
+// <===================== Exercise ==========================>
+{
+    // 💻 Exercise Level 1
+    {
+        // Q1_ Calculate the total annual income of the person from the following text.
+        // 'He earns 4000 euro from salary per month, 10000 euro annual bonus, 5500 euro online courses per month.'
+        console.log('%cindex.mjs line: 284 Q1_ Calculate the total annual income of the person from the following text.');
+
+        {
+            const txt = 'He earns 4000 euro from salary per month, 10000 euro annual bonus, 5500 euro online courses per month.'
+            const salary = txt.match(/\d+/g);
+            console.log('salary array', salary);
+            for (let i = 0; i < salary.length; i++) {
+                salary[i] = parseInt(salary[i], 10);
+            }
+            console.log('%cindex.mjs line:293 salary', 'color: #26bfa5;', salary);
+            const total = (...args) => {
+                let total = 0;
+                for (const num of args) {
+                    total += num
+                }
+                return total;
+            }
+            console.log(total(...salary))
+        }
+
+        const Q2_ = 'The position of some particles on the horizontal x-axis -12, -4, -3 and -1 in the negative direction, 0 at origin, 4 and 8 in the positive direction. Extract these numbers and find the distance between the two furthest particles';
+        console.log('%cindex.mjs line:305 Q2_', 'color: #26bfa5;', Q2_);
+
+        {
+            // Filtering out the numbers
+            const numList = Q2_.match(/-?\d+/g);
+            for (let i = 0; i < numList.length; i++) {
+                numList[i] = parseInt(numList[i], 10);
+            }
+            console.log('%cindex.mjs line:310 numList', 'color: #26bfa5;', numList);
+
+            // Sorting in ascending order...
+            const sortedPoints = numList.sort((a, b) => a - b);
+            console.log('%cindex.mjs line:315 sortedPoints', 'color: #26bfa5;', sortedPoints);
+
+            // Distance between most distant points (i.e first and last point in sorted list)
+            const distance = sortedPoints[sortedPoints.length - 1] - sortedPoints[0];
+            console.log('%cindex.mjs line:321 distance', 'color: #26bfa5;', distance);
+        }
+        
+        const Q3_ = 'Write a pattern which identify if a string is a valid JavaScript variable or not';
+
+        console.log('%cindex.mjs line:326 Q3_', 'color: #26bfa5;', Q3_);
+        {
+            // Function for a valid variable
+            const is_valid_variable = (variable)=>{
+                // This regex is covered by ^ and $ means all the inner conditions must fulfill to make the test true. In a variable there is alphabets, numbers(but not at first) and underscores and also dollar sign. All these are given here
+                return /^[A-Za-z_$][a-zA-Z0-9_$]*$/.test(variable)
+            }
+            console.log('%cindex.mjs line:331 is_valid_variable("_name")', 'color: #26bfa5;', is_valid_variable("_name"));
+            console.log('%cindex.mjs line:331 is_valid_variable("0name")', 'color: #26bfa5;', is_valid_variable("0name"));
+            console.log('%cindex.mjs line:331 is_valid_variable("$name")', 'color: #26bfa5;', is_valid_variable("$name"));
+            console.log('%cindex.mjs line:331 is_valid_variable("my-name")', 'color: #26bfa5;', is_valid_variable("my-name"));
+        }
+        
+    }
+    // Level 2
+    console.log('\n\nLevel 2 Exercise\n')
+    {
+        const Q1_ = 'Write a function called tenMostFrequentWords which get the ten most frequent word fro a string';
+        const paragraph = 'I love teaching. If you don not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.'
+        
+        console.log('%cindex.mjs line:327 Q1_', 'color: #26bfa5;', Q1_);
+        const tenMostFrequentWords = (paragraph, topWords) => 
+        {
+            const wordList = paragraph.match(/\b\w+\b/g);
+            const wordSet = new Set(wordList);
+            const wordCountList = [];
+            wordSet.forEach(e => {
+                let count = 0;
+                let sameWord = wordList.filter(a => a === e);
+                let list = [['word', e], ['count', sameWord.length]]
+                wordCountList.push(list);
+            })
+            let sortedArr = wordCountList.sort((a, b) => b[1][1] - a[1][1]);
+        
+            // Array in object format
+            const formatList = [];
+            sortedArr.forEach(e => {
+                let obj = Object.fromEntries(e);
+                formatList.push(obj);
+            })
+        
+            return formatList.slice(0,topWords);
+        }
+        console.log('%cindex.mjs line:350 tenMostFrequentWords(paragraph,10)', 'color: #26bfa5;', tenMostFrequentWords(paragraph,10));
     }
 }
