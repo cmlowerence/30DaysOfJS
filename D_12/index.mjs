@@ -190,7 +190,7 @@ D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher.'
         console.log('\n\n✌️Period (.) --->\n');
 
         {
-            const pattern= /[a]./g  // here square Bracket means a and . means any character except new line.
+            const pattern = /[a]./g  // here square Bracket means a and . means any character except new line.
             const text = 'Apple and banana are fruits.'
             const matches = text.match(pattern);
             console.log('%cindex.mjs line:196 matches', 'color: #26bfa5;', matches);
@@ -215,9 +215,62 @@ D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher.'
         {
             const txt = 'I am not sure if there is a convention how to write the word e-mail.\
             Some people write it email other may write it as Email or E-mail. ';
-            const pattern = /[Ee]-?mail/g ;//? means optional
+            const pattern = /[Ee]-?mail/g;//? means '-' is optional
             const matches = txt.match(pattern);
             console.log('%cindex.mjs line:220 matches', 'color: #26bfa5;', matches);
+        }
+
+        // Quantifier in RegExp
+        {
+            const text = 'This regular expression example was made in September 26, 2023'
+            const pattern = /\b\w{4}\b/g; // using \b on both sides bounds the word with 4 letters in it
+            const matches = text.match(pattern);
+            console.log('%cindex.mjs line:228 matches', 'color: #26bfa5;', matches);
+
+            // Another example
+            {
+                const pattern = /\b[a-zA-Z]{4}\b/g; // Exactly 4 character words without numbers
+                const matches = text.match(pattern);
+                console.log('%cindex.mjs line:234 matches', 'color: #fff;', matches);
+            }
+
+            // Another
+            {
+                const pattern = /\d{1,4}/g; // numbers with 1 to 4 digits in it
+                const matches = text.match(pattern);
+                console.log('%cindex.mjs line:241 matches', 'color: #26bfa5;', matches);
+            }
+
+            // Cart (^)
+            {
+
+                // Starts with
+                {
+                    const txt = 'This regular expression example was made in September 27, 2023.';
+                    const pattern = /^This/g; // ^ means starts with
+                    const matches = txt.match(pattern);
+                    console.log('%cindex.mjs line:249 matches', 'color: #f00;', matches);
+                }
+
+                // Negation
+                {
+                    const txt = 'This regualar experssion example was made in September 27, 2023';
+                    const pattern = /[^A-Za-z,. ]+/g; // Here ^ means not A to Z, not a to z, no space, no comma, no period
+                    const matches = txt.match(pattern);
+                    console.log('%cindex.mjs line:260 matches','color: #f00;', matches);
+                }
+            }
+
+            // Exact match
+            {
+                // We can use both ^, which will give us starting, and $, which will give us ending
+                {
+                    let pattern = /^[A-Z][a-z]{3,12}$/;
+                    let name = 'Chudamani';
+                    let result = pattern.test(name);
+                    console.log('%cindex.mjs line:271 result','color: #f00;', result);
+                }
+            }
         }
     }
 }
