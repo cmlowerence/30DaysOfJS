@@ -333,7 +333,7 @@ class Person {
             get getScore(){
                 return this.score;
             }
-            get getSkills{
+            get getSkills(){
                 return this.skills
             }
 
