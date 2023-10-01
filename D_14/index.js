@@ -1,13 +1,14 @@
 // @ts-check
 // const prompt = require('prompt-sync')();
+// const fs = require('fs');
 /* Error Handling */
 // JavaScript is loosely-typed language. Some times you will get a runtime error when you try to access an undefined variable or call undefined function etc.
 // JavaScript similar to python or Java provides an error-handling mechanism to catch runtime errors using try-catch-finally block
-try{
+try {
     // code that may throw error
-}catch(err){
+} catch (err) {
     // code to be executed if an error occurs
-}finally{
+} finally {
     // code to be executed regardless of an error occurs or not
 }
 
@@ -20,31 +21,31 @@ finally: finally block will always be executed regardless of the occurrence of a
 
 // Examples
 {
-    try{
+    try {
         let lastName = 'Lawrence';
         let fullName = `${firstName} ${lastName} `;
-    }catch(err){
-        console.log('this is manual error:- ',err);
+    } catch (err) {
+        console.log('this is manual error:- ', err);
     }
 
-    try{
+    try {
         let lastName = 'Lawrence';
         let fullName = firstName + ' ' + lastName;
-    }catch(err){
+    } catch (err) {
         console.error(err) // We can use console.log or console.error also
-    }finally{
+    } finally {
         console.log('In any case I will be executed');
     }
 
     // The catch block takes parameter. It is common to pass e, err or error as a parameter to the catch block. This parameter is an object and it has name and message keys. Lets use the name and message
     {
-        try{
+        try {
             let lastName = 'Lawrence';
             let fullName = firstName + ' ' + lastName;
-        }catch(err){
+        } catch (err) {
             console.log('Name of teh error', err.name); // err object name keyword
-            console.log('Error message',err.message); // err object message keyword
-        } finally{
+            console.log('Error message', err.message); // err object message keyword
+        } finally {
             console.log('In any case I will be executed.');
         }
     }
@@ -77,11 +78,11 @@ finally: finally block will always be executed regardless of the occurrence of a
 
 // => ReferenceError: An illegal reference has occurred. A ReferenceError is thrown if we use a variable that has not been declared
 {
-    try{
+    try {
         let firstName = 'Chudamani';
         let fullName = firstName + ' ' + lastName;
-    }catch(err){
-        console.log(err.name,err.message);
+    } catch (err) {
+        console.log(err.name, err.message);
     }
 }
 
@@ -105,27 +106,27 @@ console.log('%c ================= Exercise =================', 'font-weight: bol
     const Q_1 = 'Write code that handles the exception when an array is empty and throws a custom exception with the message "Array is empty."'
     console.log('%cindex.js line:106 Q_1', 'color: white; font-size: 16px; background-color: #007acc;', `${Q_1}`);
     {
-        const throwErrMtArr= (arr)=>{
-            if(arr.length ===0){
+        const throwErrMtArr = (arr) => {
+            if (arr.length === 0) {
                 throw 'Array is empty'
             }
         }
-        let myArr = [1,2,3,4];
+        let myArr = [1, 2, 3, 4];
         let myArr1 = [];
-        try{
+        try {
             throwErrMtArr(myArr);
             throwErrMtArr(myArr1)
-        }catch (err){
+        } catch (err) {
             console.error(err)
         }
     }
-    
+
     const Q_2 = ' Write code that handles the exception when an element in the array is not a number and throws a custom exception with the message "Invalid input: element at index [index] is not a number."'
     console.log('%cindex.js line:120 Q_2', 'color: white; background-color: #007acc;', Q_2);
     {
-        const NaNError = (arr)=>{
-            arr.forEach((e,i)=>{
-                if (typeof(e) != 'number'){
+        const NaNError = (arr) => {
+            arr.forEach((e, i) => {
+                if (typeof (e) != 'number') {
                     const err = new Error();
                     err.name = 'Invalid input';
                     err.message = `element at index ${i} is not a number`;
@@ -133,12 +134,12 @@ console.log('%c ================= Exercise =================', 'font-weight: bol
                 }
             })
         }
-        const array = [67,'shyam','shubham',34];
-        try{
+        const array = [67, 'shyam', 'shubham', 34];
+        try {
             NaNError(array)
-        }catch (error){
+        } catch (error) {
             console.log(error)
-        }finally{
+        } finally {
             console.log('Code block completed');
         }
     }
@@ -146,8 +147,60 @@ console.log('%c ================= Exercise =================', 'font-weight: bol
     const Q_3 = 'Write code that handles the exception when you try to access an undefined variable and throws a custom exception with the message "Variable is undefined."'
     console.log('%cindex.js line:147 Q_3', 'color: white; background-color: #007acc;', Q_3);
     {
-        const varUndefined = (variable){
-            
+        const varUndefined = (variable) => {
+            try {
+                console.log(variable);
+            } catch (err) {
+                throw new Error('Variable is undefined')
+            }
+        }
+        try {
+            varUndefined(myVar)
+        } catch (err) {
+            console.error(err.message)
         }
     }
+
+    const Q_4 = 'Write code that handles the exception when dividing by zero and throws a custom exception with the message "Division by zero."'
+    console.log('%cindex.js line:164 Q_4', 'color: white; background-color: #007acc;', Q_4);
+    {
+        const divByZeroErr = (dividend, divisor) => {
+            try{
+                if (divisor === 0) {
+                    throw new Error('Division by zero')
+                }
+                return dividend / divisor
+            }catch(err){
+                throw err
+            }
+        }
+        const dividend = 34;
+        const divisor = 0;
+        try{
+            divByZeroErr(dividend,divisor)
+        }catch (err){
+            console.error(err);
+        }
+
+    }
+
+    // const Q_5 = 'Write code that handles the exception when attempting to open a non-existent file using the fs module in Node.js and throws a custom exception with the message "File not found."';
+
+    // console.log('%cindex.js line:187 Q_5', 'color: white; background-color: #007acc;', Q_5);
+    // {
+    //     const openFile = (file)=>{
+    //         if (fs.existsSync(file)){
+    //             console.log('File Exists')
+    //         }else{
+    //             throw new Error('File not found')
+    //         }
+    //     }
+    //     const file = 'robot.txt';
+    //     try{
+    //         openFile(file)
+    //     }catch (err){
+    //         console.error(err.message);
+    //     }
+    // }
+
 }
