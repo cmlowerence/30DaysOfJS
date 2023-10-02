@@ -124,12 +124,12 @@ class Person {
 
     const person = new Person('Chudamani', 'Lawrence', 20, 'India', 'Mandi');
     console.log(person.getFullName())
-}
 
-// Properties with initial values
-/* When we create a class for some properties we may have an initial value. For instance if ou are playing a game, ou start score will be zero. So, we may have a starting score or score which is zero. In other way, we may hae an initial skill and we will acquire some skill after some time. */
 
-{
+    // Properties with initial values
+    /* When we create a class for some properties we may have an initial value. For instance if ou are playing a game, ou start score will be zero. So, we may have a starting score or score which is zero. In other way, we may hae an initial skill and we will acquire some skill after some time. */
+
+
     class Person {
         constructor(firstName, lastName, age, country, city) {
             this.firstName = firstName;
@@ -314,7 +314,7 @@ class Person {
     }
 
     // Static Methods
-    // The static keyword defines a static method for a class. Static methods are not called on instances of the class. Instead, they are called on the class itself. These are often utility functions, such as functions to create or clone objects. 
+    // The static keyword defines a static method for a class. Static methods are not called on instances of the class. Instead, they are called on the class itself. These are often utility functions, such as functions to create, or clone objects. 
     {
         class Person {
             constructor(firstName, lastName, age, country, city) {
@@ -346,39 +346,128 @@ class Person {
 
             getPersonInfo() {
                 let fullName = this.getFullName();
-                let skills = this.skills.length > 0 && this.skills.slice(0,this.skills.length-1).join(', ') + `and ${this.skills[this.skills.length-1]}`;
-                let formattedSkills = skills?`He knows ${skills}`: ''
+                let skills = this.skills.length > 0 && this.skills.slice(0, this.skills.length - 1).join(', ') + `and ${this.skills[this.skills.length - 1]}`;
+                let formattedSkills = skills ? `He knows ${skills}` : ''
                 let info = `${fullName} is ${this.age}. He lives at ${this.city}, ${this.country}, ${formattedSkills}`;
                 return info
             }
 
             // static method
-            static favoriteSkill(){
-                const skills = ['HTML','CSS','JS','React','Python','Node'];
-                const index = Math.floor(Math.random()*skills.length);
+            static favoriteSkill() {
+                const skills = ['HTML', 'CSS', 'JS', 'React', 'Python', 'Node'];
+                const index = Math.floor(Math.random() * skills.length);
                 return skills[index]
             }
-            static showDateTime(){
+            static showDateTime() {
                 let now = new Date();
                 let year = now.getFullYear();
-                let month = now.getMonth()+1;
+                let month = now.getMonth() + 1;
                 let date = now.getDate();
                 let hours = now.getHours();
                 let minutes = now.getMinutes();
-                if (hours<10){
-                    hours = '0'+hours
+                if (hours < 10) {
+                    hours = '0' + hours
                 }
-                if (minutes<10){
-                    minutes = '0'+minutes
+                if (minutes < 10) {
+                    minutes = '0' + minutes
                 }
 
-                let dateMonthYear = date+'.'+month + '.'+year;
-                let time = hours + ':'+minutes+':'
+                let dateMonthYear = date + '.' + month + '.' + year;
+                let time = hours + ':' + minutes + ':'
                 let fullTime = dateMonthYear + ' ' + time
                 return fullTime
             }
         }
         console.log(Person.favoriteSkill());
         console.log(Person.showDateTime());
+    }
+}
+
+// Inheritance
+/* Using Inheritance we can access all the properties and the methods of the parent class. This reduces repetition of code.
+ */
+// let us create child class out of Person as parent class
+{
+    // syntax:------->
+    class ChildClassName extends ParentClassName {
+        // code goes here
+    }
+
+    // let us create a child of Person class
+    {
+        class Person {
+            constructor(firstName, lastName, age, country, city) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.country = country;
+                this.city = city;
+                this.score = 0;
+                this.skills = [];
+            }
+            getFullName() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+            get getScore() {
+                return this.score;
+            }
+            get getSkills() {
+                return this.skills
+            }
+
+            set setScore(score) {
+                this.score += score;
+            }
+            set setSkill(skill) {
+                this.skills.push(skill)
+            }
+
+            getPersonInfo() {
+                let fullName = this.getFullName();
+                let skills = this.skills.length > 0 && this.skills.slice(0, this.skills.length - 1).join(', ') + `and ${this.skills[this.skills.length - 1]}`;
+                let formattedSkills = skills ? `He knows ${skills}` : ''
+                let info = `${fullName} is ${this.age}. He lives at ${this.city}, ${this.country}, ${formattedSkills}`;
+                return info
+            }
+
+            // static method
+            static favoriteSkill() {
+                const skills = ['HTML', 'CSS', 'JS', 'React', 'Python', 'Node'];
+                const index = Math.floor(Math.random() * skills.length);
+                return skills[index]
+            }
+            static showDateTime() {
+                let now = new Date();
+                let year = now.getFullYear();
+                let month = now.getMonth() + 1;
+                let date = now.getDate();
+                let hours = now.getHours();
+                let minutes = now.getMinutes();
+                if (hours < 10) {
+                    hours = '0' + hours
+                }
+                if (minutes < 10) {
+                    minutes = '0' + minutes
+                }
+
+                let dateMonthYear = date + '.' + month + '.' + year;
+                let time = hours + ':' + minutes + ':'
+                let fullTime = dateMonthYear + ' ' + time
+                return fullTime
+            }
+        }
+
+        class Student extends Person{
+            saySomething(){
+                console.log('I am a child of the person class');
+            }
+        }
+
+        const s1 = new Student('Chudamani','Lawrence',30,'India','Mandi');
+        console.log(s1);
+        console.log(s1.saySomething());
+        console.log(s1.getFullName());
+        console.log(s1.getPersonInfo());
+        // Here we can use all of the methods of Person class in Student class as Person class in Inherited by Student class
     }
 }
