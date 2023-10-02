@@ -128,29 +128,31 @@ class Person {
 
     // Properties with initial values
     /* When we create a class for some properties we may have an initial value. For instance if ou are playing a game, ou start score will be zero. So, we may have a starting score or score which is zero. In other way, we may hae an initial skill and we will acquire some skill after some time. */
-
-
-    class Person {
-        constructor(firstName, lastName, age, country, city) {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.age = age;
-            this.country = country;
-            this.city = city;
-            this.score = 0; // Key with initial value
-            this.skills = [] // Key with initial value
+    {
+        class Person {
+            constructor(firstName, lastName, age, country, city) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.country = country;
+                this.city = city;
+                this.score = 0; // Key with initial value
+                this.skills = [] // Key with initial value
+            }
+            getFullName() {
+                return `${this.firstName} ${this.lastName}`
+            }
         }
-        getFullName() {
-            return `${this.firstName} ${this.lastName}`
-        }
+        const person1 = new Person('Chudamani', 'Lawrence', 20, 'India', 'Mandi');
+        const person2 = new Person('Rishi', 'Rathour', 20, 'India', 'Mandi');
+
+        console.log(person1.score);
+        console.log(person2.score);
+        console.log(person1.skills);
+        console.log(person2.skills);
     }
-    const person1 = new Person('Chudamani', 'Lawrence', 20, 'India', 'Mandi');
-    const person2 = new Person('Rishi', 'Rathour', 20, 'India', 'Mandi');
 
-    console.log(person1.score);
-    console.log(person2.score);
-    console.log(person1.skills);
-    console.log(person2.skills);
+
 
     // A method could me regular method or a getter or a setter. Let us see, getter and setter.
 
@@ -389,9 +391,9 @@ class Person {
 // let us create child class out of Person as parent class
 {
     // syntax:------->
-    class ChildClassName extends ParentClassName {
-        // code goes here
-    }
+    // class ChildClassName extends ParentClassName {
+    //     // code goes here
+    // }
 
     // let us create a child of Person class
     {
@@ -457,13 +459,13 @@ class Person {
             }
         }
 
-        class Student extends Person{
-            saySomething(){
+        class Student extends Person {
+            saySomething() {
                 console.log('I am a child of the person class');
             }
         }
 
-        const s1 = new Student('Chudamani','Lawrence',30,'India','Mandi');
+        const s1 = new Student('Chudamani', 'Lawrence', 30, 'India', 'Mandi');
         console.log(s1);
         console.log(s1.saySomething());
         console.log(s1.getFullName());
@@ -471,3 +473,134 @@ class Person {
         // Here we can use all of the methods of Person class in Student class as Person class in Inherited by Student class
     }
 }
+
+// Overriding Methods
+/* We can customize the parent methods, we can add additional properties to a child class. If we want to customize, the methods and if we want to add extra properties, we need to use the constructor function in child class too. Inside the constructor function, we call the 'super()' function to access all the properties from the parent class. The Person class didn't have gender but now let us give gender property for the child class, Student. If the same method name used in teh child class, the parent method will be overridden */
+{
+    class Person {
+        constructor(firstName, lastName, age, country, city) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.country = country;
+            this.city = city;
+            this.score = 0;
+            this.skills = [];
+        }
+        getFullName() {
+            return `${this.firstName} ${this.lastName}`;
+        }
+        get getScore() {
+            return this.score;
+        }
+        get getSkills() {
+            return this.skills
+        }
+
+        set setScore(score) {
+            this.score += score;
+        }
+        set setSkill(skill) {
+            this.skills.push(skill)
+        }
+
+        getPersonInfo() {
+            let fullName = this.getFullName();
+            let skills = this.skills.length > 0 && this.skills.slice(0, this.skills.length - 1).join(', ') + `and ${this.skills[this.skills.length - 1]}`;
+            let formattedSkills = skills ? `He knows ${skills}` : ''
+            let info = `${fullName} is ${this.age}. He lives at ${this.city}, ${this.country}, ${formattedSkills}`;
+            return info
+        }
+
+        // static method
+        static favoriteSkill() {
+            const skills = ['HTML', 'CSS', 'JS', 'React', 'Python', 'Node'];
+            const index = Math.floor(Math.random() * skills.length);
+            return skills[index]
+        }
+        static showDateTime() {
+            let now = new Date();
+            let year = now.getFullYear();
+            let month = now.getMonth() + 1;
+            let date = now.getDate();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            if (hours < 10) {
+                hours = '0' + hours
+            }
+            if (minutes < 10) {
+                minutes = '0' + minutes
+            }
+
+            let dateMonthYear = date + '.' + month + '.' + year;
+            let time = hours + ':' + minutes + ':'
+            let fullTime = dateMonthYear + ' ' + time
+            return fullTime
+        }
+    }
+    class Student extends Person {
+        constructor(firstName, lastName, age, country, city, gender) {
+            super(firstName, lastName, age, country, city);
+            this.gender = gender
+        }
+
+        saySomething() {
+            return 'I am a child of the Person class';
+        }
+        getPersonInfo() {
+            let fullName = this.getFullName();
+            let skills = this.skills.length > 0 && this.skills.slice(0, this.skills.length - 1).join(', ') + ` and ${this.skills[this.skills.length - 1]}`;
+
+            let formattedSkills = skills ? `${this.gender == 'Male' ? 'He' : 'She'} knows ${skills}` : '';
+
+            let pronoun = this.gender == 'Male' ? 'He' : 'She';
+
+            let info = `${fullName} is ${this.age}. ${pronoun} lives in ${this.city}, ${this.country}. ${formattedSkills}`;
+            return info
+        }
+    }
+    const s1 = new Student(
+        'Chudamani',
+        'Lawrence',
+        20,
+        'India',
+        'Mandi',
+        'Male'
+    )
+
+    const s2 = new Student(
+        'Tia',
+        'Chaudhari',
+        20,
+        'India',
+        'Mandi',
+        'Female'
+    )
+
+    s1.setScore = 1;
+    let s1Skills = ['HTML', 'CSS', 'JavaScript'];
+    s1Skills.forEach(e => {
+        s1.setSkill = e
+    })
+
+    s2.setScore = 1;
+    let s2Skills = ['Planning', 'Managing', 'Organizing'];
+    s2Skills.forEach(e => {
+        s2.setSkill = e
+    });
+
+    console.log(s1)
+
+    console.log(s1.saySomething());
+    console.log(s1.getFullName());
+    console.log(s1.getPersonInfo());
+
+
+    console.log(s2)
+
+    console.log(s2.saySomething());
+    console.log(s2.getFullName());
+    console.log(s2.getPersonInfo());
+}
+
+console.log('%c =================== Exercise ====================', 'font-weight: bold; font-size: 20px;color: red; text-shadow: 1px 1px 0 rgb(217,31,38) , 21px 21px 0 rgb(42,21,113); margin-bottom: 7px; padding: 5px;');
