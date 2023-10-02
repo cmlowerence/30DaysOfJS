@@ -603,4 +603,13 @@ class Person {
     console.log(s2.getPersonInfo());
 }
 
+
+/*============================ Exercise ============================*/
 console.log('%c =================== Exercise ====================', 'font-weight: bold; font-size: 20px;color: red; text-shadow: 1px 1px 0 rgb(217,31,38) , 21px 21px 0 rgb(42,21,113); margin-bottom: 7px; padding: 5px;');
+{
+    /* Exercise Level 1 */
+    console.log('✌️Exercise Level 1 ---------------->');
+    {
+        
+    }
+}
