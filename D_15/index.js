@@ -732,4 +732,14 @@ console.log('%c =================== Exercise ====================', 'font-weight
             console.log(dog2.getLegs)
         }
     }
+
+    // =============== Exercise Level 2 ====================
+    console.log('Exercise Level 2 -------------->')
+    {
+        const Q_1 = 'Override the method you create in Animal class'
+        console.log('%cindex.js line:740 Q_1', 'color: white; background-color: #007acc;', Q_1);
+        {
+            
+        }
+    }
 }
