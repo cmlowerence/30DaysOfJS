@@ -614,32 +614,32 @@ console.log('%c =================== Exercise ====================', 'font-weight
         const Q_1 = 'Create an Animal class. The class will have name, age, color, legs properties and create different methods.';
         console.log('%cindex.js line:613 Q_1', 'color: white; background-color: #007acc;', Q_1);
         {
-            class Animal{
-                constructor(name,age,color,legs){
+            class Animal {
+                constructor(name, age, color, legs) {
                     this.name = name;
                     this.age = age;
                     this.color = color;
                     this.legs = legs;
                 }
-                get getName(){
+                get getName() {
                     return this.name
                 }
-                get getAge(){
+                get getAge() {
                     return this.age
                 }
-                get getColor(){
+                get getColor() {
                     return this.color
                 }
-                get getLegs(){
+                get getLegs() {
                     return this.legs
                 }
-                getFullInfo(){
+                getFullInfo() {
                     return `${this.name} is of ${this.age}. This animal is of ${this.color} color and have ${this.legs} legs.}`
                 }
             }
 
-            let animal1 = new Animal('Tiger',12,'Stripped Yellow',4);
-            let animal2 = new Animal('Lion',20,'Orange',4);
+            let animal1 = new Animal('Tiger', 12, 'Stripped Yellow', 4);
+            let animal2 = new Animal('Lion', 20, 'Orange', 4);
 
             console.log(animal1);
             console.log(animal1.getName);
@@ -661,37 +661,37 @@ console.log('%c =================== Exercise ====================', 'font-weight
         console.log('%cindex.js line:661 Q_2', 'color: white; background-color: #007acc;', Q_2);
 
         {
-            class Animal{
-                constructor(name,age,color,legs){
+            class Animal {
+                constructor(name, age, color, legs) {
                     this.name = name;
                     this.age = age;
                     this.color = color;
                     this.legs = legs;
                 }
-                get getName(){
+                get getName() {
                     return this.name
                 }
-                get getAge(){
+                get getAge() {
                     return this.age
                 }
-                get getColor(){
+                get getColor() {
                     return this.color
                 }
-                get getLegs(){
+                get getLegs() {
                     return this.legs
                 }
-                getFullInfo(){
+                getFullInfo() {
                     return `${this.name} is of ${this.age}. This animal is of ${this.color} color and have ${this.legs} legs.}`
                 }
             }
-            class Cat extends Animal{
-                getDetail(){
+            class Cat extends Animal {
+                getDetail() {
                     return `${this.name} is a type of cat who lives for ${this.age} years. They are usually of ${this.color} color and have ${this.legs} legs.`
                 }
             }
 
-            let cat1 = new Cat('Leopard',20,'Stripped Orange',4);
-            let cat2 = new Cat('Catalina Valentine',80,'Ginger',2)
+            let cat1 = new Cat('Leopard', 20, 'Stripped Orange', 4);
+            let cat2 = new Cat('Catalina Valentine', 80, 'Ginger', 2)
 
             console.log(cat1)
             console.log(cat1.getDetail());
@@ -708,14 +708,14 @@ console.log('%c =================== Exercise ====================', 'font-weight
             console.log(cat2.getColor)
             console.log(cat2.getLegs)
 
-            class Dog extends Animal{
-                getDetail(){
+            class Dog extends Animal {
+                getDetail() {
                     return `${this.name} is a type of dog who lives for ${this.age} years. They usually are of ${this.color} color and have ${this.legs} legs.`
                 }
             }
 
-            let dog1 = new Dog('German Shepard',20,'Black',4);
-            let dog2 = new Dog('Bull Dog',18,'Brown',4);
+            let dog1 = new Dog('German Shepard', 20, 'Black', 4);
+            let dog2 = new Dog('Bull Dog', 18, 'Brown', 4);
 
             console.log(dog1)
             console.log(dog1.getDetail());
@@ -738,6 +738,59 @@ console.log('%c =================== Exercise ====================', 'font-weight
     {
         const Q_1 = 'Override the method you create in Animal class'
         console.log('%cindex.js line:740 Q_1', 'color: white; background-color: #007acc;', Q_1);
+        {
+            class Animal {
+                constructor(name, age, color, legs) {
+                    this.name = name;
+                    this.age = age;
+                    this.color = color;
+                    this.legs = legs;
+                }
+                get getName() {
+                    return this.name
+                }
+                get getAge() {
+                    return this.age
+                }
+                get getColor() {
+                    return this.color
+                }
+                get getLegs() {
+                    return this.legs
+                }
+                getFullInfo() {
+                    return `${this.name} is of ${this.age}. This animal is of ${this.color} color and have ${this.legs} legs.}`
+                }
+            }
+
+            class Dog extends Animal {
+                constructor(name, age, color, legs, isPet) {
+                    super(name, age, color, legs);
+                    this.isPet = isPet;
+                }
+                getInfo() {
+                    return `${this.name} is a dog breed who's life span is almost ${this.age}. They are of various colors but usually found in ${this.color} color. ${this.isPet ? 'I have one of the dog of this breed' : "I don't have such breed of dog but I want one."}`
+                }
+            }
+            let dog1 = new Dog('German Shepard', 20, 'black', 4, true);
+            let dog2 = new Dog('Bull Dog', 20, 'brown', 4, false);
+
+            console.log(dog1);
+            console.log(dog1.getInfo());
+
+
+            console.log(dog2);
+            console.log(dog2.getInfo());
+        }
+    }
+
+    // ========================= Exercise Level 3 ==========================
+    console.log('✌️Exercise Level 3 -------------->');
+    {
+        const Q_1 = `Let's try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create a class called Statistics and create all the functions which do statistical calculations as method for the Statistics class.`
+
+        console.log('%cindex.js line:792 Q_1', 'color: white; background-color: #007acc;', Q_1);
+
         {
             
         }
