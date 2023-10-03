@@ -787,12 +787,113 @@ console.log('%c =================== Exercise ====================', 'font-weight
     // ========================= Exercise Level 3 ==========================
     console.log('✌️Exercise Level 3 -------------->');
     {
-        const Q_1 = `Let's try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create a class called Statistics and create all the functions which do statistical calculations as method for the Statistics class.`
+        const Q_1 = `Let's try to develop a program which calculate measure of central tendency of a sample,(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create a class called Statistics and create all the functions which do statistical calculations as method for the Statistics class.`
 
         console.log('%cindex.js line:792 Q_1', 'color: white; background-color: #007acc;', Q_1);
 
         {
-            
+            class Statistics {
+                constructor(stats) {
+                    this.stats = stats;
+                }
+                get count() {
+                    let count = 0
+                    for (const e of this.stats) {
+                        count += 1
+                    }
+                    return count
+                }
+                get sum() {
+                    let sum = 0;
+                    for (const e of this.stats) {
+                        sum += e
+                    }
+                    return sum
+                }
+                get min() {
+                    return this.stats.sort()[0]
+                }
+                get max() {
+                    return this.stats.sort((a, b) => b - a)[0];
+                }
+                get range() {
+                    return this.max - this.min
+                }
+                get mean() {
+                    return Math.ceil(this.sum / this.count)
+                }
+                get median() {
+                    let statLen = this.stats.length
+                    if (statLen % 2 === 0) {
+                        return (((this.stats[statLen / 2]) + (this.stats[(statLen / 2) + 1])) / 2)
+                    } else {
+                        return this.stats[((statLen + 1) / 2)]
+                    }
+                }
+                get mode() {
+                    let list = []
+                    let set = new Set(this.stats);
+                    set.forEach(e => {
+                        let duplicate = this.stats.filter(b => e === b);
+                        let dupObj = {};
+                        dupObj['mode'] = e;
+                        dupObj['count'] = duplicate.length
+                        list.push(dupObj)
+                    })
+                    return list.sort((a, b) => b.count - a.count)[0]
+                }
+                get var() {
+                    // Simple variance formula: 
+                    /* S^2 = Submission[xi-mean]/(total Count - 1) */
+                    let varSum = 0
+                    for (let i = 0; i < this.stats.length; i++) {
+                        varSum += Math.pow(this.stats[i] - this.mean, 2)
+                    }
+                    return Math.round(varSum / (this.count - 1)*10)/10
+                }
+                get std() {
+                    return Math.round(Math.sqrt(this.var)*10)/10
+                }
+                get freqDist() {
+                    let list = []
+                    let set = new Set(this.stats);
+                    let setSize = set.size;
+                    set.forEach(e => {
+                        let frequency = this.stats.filter(b => e === b).length;
+                        list.push(`(${e},${(frequency / this.stats.length) * 100})`)
+                    })
+                    return list
+                }
+                describe() {
+                    let obj = new Object()
+                    obj['Count'] = this.count;
+                    obj['Sum'] = this.sum;
+                    obj['Min'] = this.min;
+                    obj['Max'] = this.max;
+                    obj['Range'] = this.range;
+                    obj['Mean'] = this.mean;
+                    obj['Median'] = this.median;
+                    obj['Mode'] = this.mode;
+                    obj['Variance'] = this.var;
+                    obj['Standard Deviation'] = this.std;
+                    obj['Frequency Distribution'] = this.freqDist;
+                    return obj
+                }
+            }
+
+            let ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26];
+            let ageStat = new Statistics(ages);
+            console.log('Count: ', ageStat.count)
+            console.log('Sum: ', ageStat.sum)
+            console.log('Min: ', ageStat.min)
+            console.log('Max: ', ageStat.max)
+            console.log('Range: ', ageStat.range)
+            console.log('Mean: ', ageStat.mean)
+            console.log('Median: ', ageStat.median)
+            console.log('Mode: ', ageStat.mode)
+            console.log('Variance: ', ageStat.var)
+            console.log('Standard Deviation: ', ageStat.std)
+            console.log('Frequency Distribution: ', ageStat.freqDist)
         }
     }
 }

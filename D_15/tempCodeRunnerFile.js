@@ -1,0 +1,1 @@
+((this.stats[statLen / 2]) + (this.stats[(statLen / 2) + 1])) / 2
