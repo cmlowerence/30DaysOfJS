@@ -1,8 +1,8 @@
-const sum = (...args) => {
-        let sum = 0;
-        for (let num of args) {
-            sum += num
-        }
-        return sum
+const user = {
+        name: 'Chudamani',
+        title: 'Programmer',
+        country: 'India',
+        city: 'Mandi'
     }
-    console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    const copiedUser = { ...user }
+    console.log(copiedUser)

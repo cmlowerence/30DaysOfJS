@@ -895,5 +895,88 @@ console.log('%c =================== Exercise ====================', 'font-weight
             console.log('Standard Deviation: ', ageStat.std)
             console.log('Frequency Distribution: ', ageStat.freqDist)
         }
+
+        const Q_2 = 'Create a class called PersonAccount. It has firstName, lastName, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance methods. Incomes is a set of incomes and its description and expenses is also a set of expenses and its description.'
+        console.log('%cindex.js line:900 Q_2', 'color: white; background-color: #007acc;', Q_2);
+        {
+            class PersonAccount{
+                constructor(firstName,lastName,incomes,expenses){
+                    this.firstName = firstName;
+                    this.lastName = lastName;
+                    this.incomes = {...incomes};
+                    this.expenses = {...expenses};
+                    this.onDebt = false;
+                    
+                }
+                set addIncome(income){
+                    for (const key in income){
+                        this.incomes[key] = income[key]
+                    }
+                }
+                set addExpense(expense){
+                    for (const key in expense){
+                        this.expenses[key] = expense[key]
+                    }
+                }
+                get totalIncome(){
+                    let totalIncome = 0;
+                    for (const income in this.incomes){
+                        totalIncome += this.incomes[income]
+                    }
+                    return totalIncome;
+                }
+                get totalExpense(){
+                    let totalExpense = 0;
+                    for (const expense in this.expenses){
+                        totalExpense += this.expenses[expense]
+                    }
+                    return totalExpense;
+                }
+                get accountBalance(){
+                    if (this.totalExpense>this.totalIncome){
+                        this.onDebt = true;
+                        return (this.totalIncome - this.totalExpense)
+                    }else{
+                        return this.totalIncome - this.totalExpense
+                    }
+                }
+                get incomeDetails(){
+                    return this.incomes
+                }
+                get expenseDetails(){
+                    return this.expenses
+                }
+                accountInfo(){
+                    let onDebtMsg = (this.accountBalance<0)?`The User is on debt of $${-1 * this.accountBalance}.`: '';
+                    return `This account belongs to ${this.firstName} ${this.lastName}. The user have $${this.totalIncome} income in total. User spends $${this.totalExpense} money on different places. The net balance of the user is $${this.accountBalance}.${onDebtMsg}`
+                }
+            }
+
+            const user = new PersonAccount('Chudamani','Lawrence',{
+                    "Job" : 500,
+                    'Freelance': 200,
+                    'PartTime': 100,
+                    'Bonus': 300
+                },{
+                    'Rent': 100,
+                    'Food': 50,
+                    'Lifestyle': 100,
+                    'Others': 100
+                });
+            
+            console.log(user.accountInfo())
+            console.log('Total Expense:- ',user.totalExpense)
+            console.log('Total Income:- ',user.totalIncome)
+            console.log('Account Balance:- ',user.accountBalance)
+            user.addExpense= {'Video Games': 300,'Movies': 50}
+            console.log('Total Expense:- ',user.totalExpense)
+            console.log('Account Balance:- ',user.accountBalance)
+            user.addIncome = {
+                'Photography': 400,
+                'Others': 100
+            }
+            console.log(user.incomeDetails);
+
+        }
     }
 }
