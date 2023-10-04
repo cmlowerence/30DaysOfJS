@@ -399,8 +399,4 @@ const txt = `{
         let jsonStudent = JSON.stringify(student,undefined,4);
         console.log(jsonStudent);
     }
-
-
-
-
 }
