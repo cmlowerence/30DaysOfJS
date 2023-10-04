@@ -249,3 +249,5 @@ console.log(userObj)
   const txt = JSON.stringify(user,['firstName','lastName','country','city','age'],4);
   console.log(txt)
 }
+
+// Exercises
