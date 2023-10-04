@@ -406,8 +406,38 @@ const txt = `{
     const Q_1 = 'Stringify the students object with only firstName, lastName and skills properties';
     console.log('✌️Q_1 --->', Q_1);
     {
-        let jsonStudents = JSON.stringify(student,['firstName','lastName','skills'],4);
+        let jsonStudents = JSON.stringify(student, ['firstName', 'lastName', 'skills'], 4);
         console.log(jsonStudents);
     }
+
+}
+
+// Exercise Level 3
+console.log('<============ Exercise Level 3 ===========>');
+{
+    const Q_1 = 'Parse the txt JSON to object';
+    console.log('✌️Q_1 --->', Q_1);
+    {
+        let objTxt = JSON.parse(txt, undefined, 4)
+        console.log(objTxt);
+    }
+
+    const Q_2 = 'Find the user who has many skills from the variable stored in txt';
+    console.log('✌️Q_2 --->', Q_2);
+    {
+        let obj = JSON.parse(txt,undefined,4);
+        let mostSkillsUser = null;
+        let mostSkillCount = 0;
+        for (user in obj){
+            const userSkillCount = obj[user].skills.length;
+            if (userSkillCount>mostSkillCount){
+                mostSkillCount = userSkillCount;
+                mostSkillsUser = {}
+                mostSkillsUser[user] = obj[user]
+            }
+        }
+        console.log(mostSkillsUser)
+    }
+
 
 }
