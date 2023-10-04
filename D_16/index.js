@@ -228,26 +228,179 @@ console.log(userObj)
         }
     }
 
-    const txt = JSON.stringify(users,undefined,4)
+    const txt = JSON.stringify(users, undefined, 4)
     console.log(txt)
 }
 
 // Using a Filter Array with JSON.stringify
 /* Now, lets use the replacer as a filter. The user object has long list of keys but we are interested in few of them. We put the keys we want to keep in array as shown in the example and use it the place of the replacer.*/
 {
-  const user = {
-    firstName : 'Chudamani',
-    lastName : 'Lawrence',
-    country: 'India',
-    city: 'Mandi',
-    email: 'cmlowerence123@gmail.com',
-    skills: ['HTML','CSS','JavaScript','React','Python'],
-    age: 20,
-    isLoggedIn : false,
-    points: 30
-  }  
-  const txt = JSON.stringify(user,['firstName','lastName','country','city','age'],4);
-  console.log(txt)
+    const user = {
+        firstName: 'Chudamani',
+        lastName: 'Lawrence',
+        country: 'India',
+        city: 'Mandi',
+        email: 'cmlowerence123@gmail.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Python'],
+        age: 20,
+        isLoggedIn: false,
+        points: 30
+    }
+    const txt = JSON.stringify(user, ['firstName', 'lastName', 'country', 'city', 'age'], 4);
+    console.log(txt)
 }
 
 // Exercises
+const skills = ['HTML', 'CSS', 'JS', 'React', 'Node', 'Python'];
+let age = 250;
+let isMarried = true;
+const student = {
+    firstName: 'Chudamani',
+    lastName: 'Lawrence',
+    age: 20,
+    isMarried: false,
+    skills: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Python']
+}
+const txt = `{
+    "Chopender":{
+        "email" : "chopender123@gmail.com",
+        "skills" : ["HTML","CSS","JavaScript"],
+        "age" : 20,
+        "isLoggedIn" : false,
+        "points" : 30
+    },
+    "Rishi" : {
+        "email" : "rishi123@gmail.com",
+        "skills" : ["HTML","CSS","JavaScript","Redux","MongoDB","Express","Node"],
+        "age" : 25,
+        "isLoggedIn" : false,
+        "points" : 50
+    },
+    "Alex": {
+        "email": "alex@alex.com",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "age": 20,
+        "isLoggedIn": false,
+        "points": 30
+    },
+    "Asab": {
+        "email": "asab@asab.com",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Redux",
+            "MongoDB",
+            "Express",
+            "React",
+            "Node"
+        ],
+        "age": 25,
+        "isLoggedIn": false,
+        "points": 50
+    },
+    "Brook": {
+        "email": "daniel@daniel.com",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Redux"
+        ],
+        "age": 30,
+        "isLoggedIn": true,
+        "points": 50
+    },
+    "Daniel": {
+        "email": "daniel@alex.com",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Python"
+        ],
+        "age": 20,
+        "isLoggedIn": false,
+        "points": 40
+    },
+    "John": {
+        "email": "john@john.com",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Redux",
+            "Node.js"
+        ],
+        "age": 20,
+        "isLoggedIn": true,
+        "points": 50
+    },
+    "Thomas": {
+        "email": "thomas@thomas.com",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React"
+        ],
+        "age": 20,
+        "isLoggedIn": false,
+        "points": 40
+    },
+    "Paul": {
+        "email": "paul@paul.com",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "MongoDB",
+            "Express",
+            "React",
+            "Node"
+        ],
+        "age": 20,
+        "isLoggedIn": false,
+        "points": 40
+    }
+}`
+
+// Exercise Level 1
+{
+    const Q_1 = 'Change skills array to JSON using JSON.stringify()'
+    console.log('✌️Q_1 ====>', Q_1);
+    {
+        let jsonSkills = JSON.stringify(skills, undefined, 4);
+        console.log(jsonSkills)
+    }
+    const Q_2 = 'Stringify the age variable';
+    console.log('✌️Q_2 ====>', Q_2);
+    {
+        let jsonAge = JSON.stringify(age, undefined, 4);
+        console.log(jsonAge);
+
+    }
+    const Q_3 = 'Stringify the isMarried variable';
+    console.log('✌️Q_3 ====>', Q_3);
+    {
+        let jsonIsMarried = JSON.stringify(isMarried, undefined, 4)
+        console.log(jsonIsMarried);
+    }
+
+    const Q_4 = 'Stringify the student object';
+    console.log('✌️Q_4 --->', Q_4);
+    {
+        let jsonStudent = JSON.stringify(student,undefined,4);
+        console.log(jsonStudent);
+    }
+
+
+
+
+}
