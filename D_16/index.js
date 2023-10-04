@@ -396,7 +396,18 @@ const txt = `{
     const Q_4 = 'Stringify the student object';
     console.log('✌️Q_4 --->', Q_4);
     {
-        let jsonStudent = JSON.stringify(student,undefined,4);
+        let jsonStudent = JSON.stringify(student, undefined, 4);
         console.log(jsonStudent);
     }
+}
+
+// Exercise Level 2
+{
+    const Q_1 = 'Stringify the students object with only firstName, lastName and skills properties';
+    console.log('✌️Q_1 --->', Q_1);
+    {
+        let jsonStudents = JSON.stringify(student,['firstName','lastName','skills'],4);
+        console.log(jsonStudents);
+    }
+
 }
