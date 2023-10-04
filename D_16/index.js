@@ -235,5 +235,17 @@ console.log(userObj)
 // Using a Filter Array with JSON.stringify
 /* Now, lets use the replacer as a filter. The user object has long list of keys but we are interested in few of them. We put the keys we want to keep in array as shown in the example and use it the place of the replacer.*/
 {
-
+  const user = {
+    firstName : 'Chudamani',
+    lastName : 'Lawrence',
+    country: 'India',
+    city: 'Mandi',
+    email: 'cmlowerence123@gmail.com',
+    skills: ['HTML','CSS','JavaScript','React','Python'],
+    age: 20,
+    isLoggedIn : false,
+    points: 30
+  }  
+  const txt = JSON.stringify(user,['firstName','lastName','country','city','age'],4);
+  console.log(txt)
 }
