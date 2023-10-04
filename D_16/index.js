@@ -1,4 +1,6 @@
 // Day 16: JSON # 30 Days of JavaScript
+
+
 /*JSON stands for JavaScript Object Notation. The JASON syntax is derived from JavaScript object notation syntax, but JSON format is text or string only. JSON is a light weight data format for storing and transporting. JSON is mostly used when data is sent from a server to client. JSON is an easier-to-use alternative of XML */
 
 // Example of JSON
@@ -141,7 +143,7 @@ const userText = `{
             }
         ]
     }`
-const userObj = JSON.parse(userText,)
+const userObj = JSON.parse(userText, undefined, 4)
 console.log(userObj)
 
 // Using a reviver function with JSON.parse()
@@ -175,4 +177,63 @@ console.log(userObj)
         return newValue
     });
     console.log(usersObj);
+
+    // The JSON.parse() is very handy to use. You don't have to pass optional parameter, you can just use it with the required parameter and you will achieve quite a lot
+}
+
+// Converting Objects to JSON
+/* 
+    When we want to change the object to JSON we use JSON.stringify(). The stringify method takes one required parameter and two optional parameters.
+    ==>  The "replacer" is used as filter and
+    ==>  the "spaces" is an indentations. 
+    If we do not want to filter out any of the keys from teh object, we can just pass undefined.
+
+    syntax:
+    JSON.stringify(obj,replacer,space)
+    => json or text, the data
+    => reviver is an optional callback function
+
+    Let us convert the following object to a string. First let use keep all the keys and also let us have 4 space indentations.
+*/
+
+{
+    const users = {
+        Chudamani: {
+            email: 'cmlowerence123@gmail.com',
+            skills: ['HTML', 'CSS', 'JavaScript'],
+            age: 20,
+            isLoggedIn: false,
+            points: 30
+        },
+        Virender: {
+            email: 'virender123@gmail.com',
+            skills: ['HTML', 'CSS', 'JavaScript'],
+            age: 20,
+            isLoggedIn: false,
+            points: 30
+        },
+        Rishi: {
+            email: 'rishi123@gmail.com',
+            skills: ['HTML', 'CSS', 'JavaScript'],
+            age: 20,
+            isLoggedIn: false,
+            points: 30
+        },
+        Chopender: {
+            email: 'chopender123@gmail.com',
+            skills: ['HTML', 'CSS', 'JavaScript'],
+            age: 20,
+            isLoggedIn: false,
+            points: 30
+        }
+    }
+
+    const txt = JSON.stringify(users,undefined,4)
+    console.log(txt)
+}
+
+// Using a Filter Array with JSON.stringify
+/* Now, lets use the replacer as a filter. The user object has long list of keys but we are interested in few of them. We put the keys we want to keep in array as shown in the example and use it the place of the replacer.*/
+{
+
 }
