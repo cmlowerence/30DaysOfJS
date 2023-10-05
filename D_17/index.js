@@ -123,3 +123,41 @@ console.log(skillsObj)
 // Clearing localStorage
 localStorage.clear()
 
+// Exercises
+{
+    // Exercise Level 1
+    console.log('%c Exercise Level 1', 'font-weight: bold; font-size: 20px;color: red; text-shadow: 1px 1px 0 rgb(217,31,38); margin-bottom: 7px; padding: 5px;');
+    {
+        const Q_1 = 'Store your first name, last name, age, country, city in your browser localStorage'
+        console.log('%cindex.js line:132 Q_1', 'color: white; background-color: #007acc;', Q_1);
+        {
+            localStorage.setItem('First Name','Chudamani');
+            localStorage.setItem('Last Name','Lawrence');
+            localStorage.setItem('Age',20);
+            localStorage.setItem('Country','India');
+            localStorage.setItem('City','Mandi');
+            console.log('%cindex.js line:139 localStorage', 'color: white; background-color: #7acc; padding: 3px; border-radius: 3px; padding-inline: 6px;', localStorage);
+        }
+        localStorage.clear()
+    }
+
+    // Exercise Level 2
+    console.log('%c Exercise Level 2', 'font-weight: bold; font-size: 20px;color: red; text-shadow: 1px 1px 0 rgb(217,31,38); margin-bottom: 7px; padding: 5px;');
+    {
+        const Q_1 = 'Create a student object. The student object will have first name, last name, age, skills, country, enrolled keys and values for the keys. Store the student object in your browser localStorage';
+        console.log('%cindex.js line:147 Q_1', 'color: white; background-color: #007acc;', Q_1);
+        {
+            const student = {
+                firstName :'Rakesh',
+                lastName : 'Lawrence',
+                age : 20,
+                skills : ['HTML','CSS','JS','React','MongoDB','Redux','Python','Flask','Django','Swift'],
+                country : 'India'
+            }
+
+            let strStudent = JSON.stringify(student,undefined,4);
+            localStorage.setItem('student',strStudent);
+            console.log(localStorage)
+        }
+    }
+}
