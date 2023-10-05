@@ -29,4 +29,20 @@
             .catch(err=>console.error(err))
         }
     }
+
+    // Exercise Level 2
+    {
+        const Q_1 = 'Print all the cat name in the catNames variable';
+        let catNames = [];
+        fetch(catsAPI)
+        .then(response => response.json())
+        .then((data)=>{
+            for (const cat of data){
+                catNames.push(cat.name)
+            }
+            console.log(catNames.join(', '))
+        })
+        .catch (err=>console.error(err))
+
+    }
 }
