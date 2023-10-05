@@ -158,6 +158,82 @@ localStorage.clear()
             let strStudent = JSON.stringify(student,undefined,4);
             localStorage.setItem('student',strStudent);
             console.log(localStorage)
+            localStorage.clear()
+        }
+    }
+
+    // Exercise Level 3
+    console.log('%c Exercise Level 3', 'font-weight: bold; font-size: 20px;color: red; text-shadow: 1px 1px 0 rgb(217,31,38); margin-bottom: 7px; padding: 5px;');
+    {
+        const Q_1 = 'Create an object called personAccount. It has firstName, lastName, incomes, expenses properties and it has totalIncome totalExpense, accountInfo, addIncome, addExpense and accountBalance methods. Incomes is a set of Incomes and its description and expenses is also a set of expenses and its description'
+        console.log('%cindex.js line:168 Q_1', 'color: white; background-color: #007acc;', Q_1);
+        {
+            const personAccount = {
+                firstName : 'Chudamani',
+                lastName : 'Lawrence',
+                incomes : {
+                    Job : 500,
+                    Freelance : 300,
+                    PartTime : 200,
+                    Others : 100
+                },
+                expenses : {
+                    Home : 100,
+                    LifeStyle : 100,
+                    Others : 200
+                },
+                get totalIncome() {
+                    let totalIncome = 0;
+                    for (const income in this.incomes){
+                        totalIncome += this.incomes[income]
+                    }
+                    return totalIncome;
+                },
+                get totalExpense(){
+                    let totalExpense = 0;
+                    for (const expense in this.expenses){
+                        totalExpense += this.expenses[expense]
+                    }
+                    return totalExpense;
+                },
+                get accountBalance(){
+                    return this.totalIncome - this.totalExpense
+                },
+                get accountInfo(){
+                    return `The user ${this.firstName} ${this.lastName} account balance is "$${this.accountBalance}. The user spends $${this.totalExpense} and have income about $${this.totalIncome}.`
+                },
+                set addIncome(income){
+                    try{
+                        for (const i in income){
+                            this.incomes[i] = income[i]
+                        }
+                    }catch (err){
+                        console.error(err)
+                    }
+                },
+                set addExpense (expense){
+                    try{
+                        for (const e in expense){
+                            this.expenses[e] = expense[e]
+                        }
+                    }catch (err){
+                        console.log(err)
+                    }
+                }
+            }
+            const personAccountStr = JSON.stringify(personAccount,undefined,4)
+            localStorage.setItem(personAccount,personAccountStr);
+            console.log(localStorage);
+
+            console.log(personAccount)
+            console.log(personAccount.accountBalance)
+            console.log(personAccount.accountInfo)
+            personAccount.addIncome = {
+                Bonus : 300,
+                Trading : 400
+            }
+            console.log(personAccount.totalIncome)
+            console.log(personAccount.accountInfo)
         }
     }
 }
