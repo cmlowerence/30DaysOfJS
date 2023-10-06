@@ -1,3 +1,8 @@
+
+
+
+
+
 //  D_15: Classes in javaScript
 /* 
     JavaScript is an object oriented programming language. Everything in JavaScript is an object, with its properties and methods. We create class to create an object. A Class is like an object constructor, or a "blueprint" for creating objects. We instantiate a class to create an object. The class defines attributes and the behaviour of the object, while the object, on the other hand, represents the class.
