@@ -3,7 +3,7 @@ const credentials = {
     Author: 'Chudamani',
     Topic: 'Writing Clean Codes',
     startDate: '07/10/2023',
-    endDate: ''
+    endDate: '07/10/2023'
 }
 
 /*
