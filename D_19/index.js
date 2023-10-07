@@ -111,93 +111,94 @@
                 let totalInc = 0;
                 let totalExp = 0;
                 let expenses = new Object();
-                
-                function totalIncome() {
 
-                    console.log('=============== totalIncome function ================')
+                function totalIncome() {
                     for (const income in incomes) {
                         totalInc += incomes[income]
                     }
-                    console.log('✌️incomes --->', incomes);
-                    console.log('✌️totalInc --->', totalInc);
-                    console.log('✌️totalExp --->', totalExp);
-                    console.log('✌️expenses --->', expenses);
                     return totalInc
                 }
                 function totalExpense() {
-                    console.log('=============== totalExpense function ================')
-
                     for (const expense in expenses) {
                         totalExp += expenses[expense]
                     }
-                    console.log('✌️incomes --->', incomes);
-                    console.log('✌️totalInc --->', totalInc);
-                    console.log('✌️totalExp --->', totalExp);
-                    console.log('✌️expenses --->', expenses);
                     return totalExp
                 }
                 function accountInfo() {
-                    console.log('=============== accountInfo function ================')
-
-                    console.log('✌️incomes --->', incomes);
-                    console.log('✌️totalInc --->', totalInc);
-                    console.log('✌️totalExp --->', totalExp);
-                    console.log('✌️expenses --->', expenses);
                     return `The account belongs to ${firstName} ${lastName}. The user have $${totalIncome()} of income and $${totalExpense()} of expense per month. The total balance remained in the user account is $${accountBalance()}`
                 }
                 function addIncome(inc = {}) {
-                    console.log('=============== addIncome function ================')
-
                     for (const key in inc) {
                         incomes[key] = inc[key]
                     }
-                    console.log('✌️incomes --->', incomes);
-                    console.log('✌️totalInc --->', totalInc);
-                    console.log('✌️totalExp --->', totalExp);
-                    console.log('✌️expenses --->', expenses);
                     return incomes
                 }
                 function addExpense(exp = {}) {
-                    console.log('=============== addExpense function ================')
-
                     for (const key in exp) {
                         expenses[key] = exp[key]
                     }
-                    console.log('✌️incomes --->', incomes);
-                    console.log('✌️totalInc --->', totalInc);
-                    console.log('✌️totalExp --->', totalExp);
-                    console.log('✌️expenses --->', expenses);
                     return expenses
                 }
                 function accountBalance() {
-                    console.log('=============== accountBalance function ================')
-
-                    console.log('✌️incomes --->', incomes);
-                    console.log('✌️totalInc --->', totalInc);
-                    console.log('✌️totalExp --->', totalExp);
-                    console.log('✌️expenses --->', expenses);
                     return totalIncome() - totalExpense()
                 }
-                console.log('=============== out function ================')
-
-                console.log('✌️incomes --->', incomes);
-                console.log('✌️totalInc --->', totalInc);
-                console.log('✌️totalExp --->', totalExp);
-                console.log('✌️expenses --->', expenses);
                 return {
-                    totalIncome: totalIncome(),
-                    totalExpense: totalExpense(),
-                    accountInfo: accountInfo(),
+                    totalIncome: totalIncome,
+                    totalExpense: totalExpense,
+                    accountInfo: accountInfo,
                     addIncome: addIncome,
                     addExpense: addExpense,
-                    accountBalance: accountBalance()
+                    accountBalance: accountBalance
                 }
             }
             const neha = personAccount('Neha', 'Bhardwaj')
             neha.addIncome({
                 Job: 500
             })
-            console.log(neha.totalIncome)
+            console.log(neha.totalIncome())
+
+
+            {
+                function khumesh(firstName = 'Default', lastName = 'Default') {
+                    let incomes = {};
+                    let expenses = {};
+                    let totalIncome = 0;
+                    let totalExpense = 0
+
+                    function calcTotal(obj) {
+                        return Object.values(obj).reduce((acc, val) => acc + val, 0)
+                    }
+                    function accountBalance() {
+                        return totalIncome - totalExpense
+                    }
+                    return {
+                        firstName: firstName,
+                        lastName: lastName,
+                        totalIncome: () => { return totalIncome },
+                        totalExpense: () => { return totalExpense },
+                        accountBalance: accountBalance,
+                        accountInfo: () => {
+                            return `Account: ${firstName} ${lastName}\nTotal Incomes: ${totalIncome}\nTotal Expenses: ${totalExpense}\nAccount Balance: ${accountBalance()}`
+                        },
+                        addIncome: (income) => {
+                            Object.assign(incomes, income); totalIncome = calcTotal(incomes)
+                        },
+                        addExpense: (expense) => {
+                            Object.assign(expenses, expense); totalExpense = calcTotal(expenses)
+                        }
+                    }
+                }
+                console.log('Alternative function:----- ');
+                let neha = khumesh('Neha', 'Kumari')
+                neha.addIncome({
+                    Job: 500,
+                    Perks: 200
+                })
+                neha.addExpense({
+                    Lifestyle: 400
+                })
+                console.log(neha.accountInfo())
+            }
 
         }
     }
