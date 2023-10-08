@@ -69,7 +69,12 @@ console.log('%clevel3.js line:8 Q_1', 'color: white; background-color: #007acc;'
 
     // Date style
     {
-        let date = new Date().toLocaleDateString();
+        let date = new Date().toLocaleDateString('en-US',{
+            weekday: 'short',
+            year : "numeric",
+            month : "long",
+            day : '2-digit'
+        });
         dateDiv.textContent = `${date}`;
         const style = dateDiv.style;
         let i = 0;
