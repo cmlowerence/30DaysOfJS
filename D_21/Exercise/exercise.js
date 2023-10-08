@@ -62,3 +62,57 @@ console.log('Hello there, This is exercise')
         
     }
 }
+
+// Exercise - Level : 2
+{
+    const Q_1 = 'Change style of each paragraph using JavaScript (eg. color, background, border, font-size, font-family';
+    console.log('%cexercise.js line:69 Q_1', 'color: white; background-color: #007acc;', Q_1);
+    {
+        const paras = document.querySelectorAll('p');
+        paras.forEach(e=>{
+            e.style.backgroundColor = 'rgba(244, 98, 65, .4)';
+            e.style.color = '#3e3e3e';
+            e.style.fontSize = '.725rem';
+            e.style.paddingInline = '1rem';
+            e.style.paddingBlock = '.5rem';
+            e.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            e.style.border = ".1rem solid #3c3c3c";
+            e.style.borderRadius = '.4rem';
+        })
+    }
+
+    const Q_2 = 'Select all paragraphs and loop through each elements and give the first and third paragraph a color of green, and the second and the fourth paragraph a red color.';
+    console.log('%cexercise.js line:85 Q_2', 'color: white; background-color: #007acc;', Q_2);
+    {
+        const paras = document.querySelectorAll('p');
+        paras.forEach((e,i)=>{
+            if (i%2===0){
+                e.style.color = 'green'; // As i starts from 0 so this element is odd one
+            }else{
+                e.style.color = 'red';
+            }
+        })
+    }
+
+    const Q_3 = 'Set text content, id and class to each paragraph';
+    console.log('%cexercise.js line:98 Q_3', 'color: white; background-color: #007acc;', Q_3);
+    {
+        const paras = document.querySelectorAll('p');
+        paras[0].setAttribute('id','paragraph_1');
+        paras[0].setAttribute('class','paragraph');
+        paras[0].textContent = "This is first paragraph.";
+        
+        paras[1].setAttribute('id','paragraph_2');
+        paras[1].setAttribute('class','paragraph');
+        paras[1].textContent = "This is second paragraph.";
+
+        paras[2].setAttribute('id','paragraph_3');
+        paras[2].setAttribute('class','paragraph');
+        paras[2].textContent = "This is third paragraph.";
+
+        paras[3].setAttribute('id','paragraph_4');
+        paras[3].setAttribute('class','paragraph');
+        paras[3].textContent = "This is fourth paragraph.";
+
+    }
+}
