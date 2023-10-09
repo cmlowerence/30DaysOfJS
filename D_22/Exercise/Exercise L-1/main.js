@@ -2,7 +2,7 @@ const credentials = {
     Author: 'Chudamani',
     Topic: 'Document Object Model (DOM) - Day 2',
     startDate: '09/10/2023',
-    endDate: '/10/2023'
+    endDate: '09/10/2023'
 }
 const Q_1 = `Create a div container on HTML document and create 0 to 100 numbers dynamically and append to the container div.
 => Even numbers background is green
