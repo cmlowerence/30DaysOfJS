@@ -48,6 +48,8 @@ const isPrime = (num) => {
     return true
 }
 
+
+
 const container = document.createElement('div');
 let element;
 for (let i = 0; i <= 101; i++) {
