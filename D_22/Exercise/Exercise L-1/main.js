@@ -85,7 +85,6 @@ document.body.appendChild(container)
         if (isPrime(innerContent)) {
             style.backgroundColor = '#dc3545'
         }else if (isOdd(innerContent)){
-            console.log(innerContent)
             style.backgroundColor = '#ffc107'
         }else if (isEven(innerContent)){
             style.backgroundColor = '#198754'
