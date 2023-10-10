@@ -239,42 +239,85 @@ let i = 0;
             // * socialDiv Style
             {
                 const style = socialDiv.style;
-                style.display = 'flex';
-                style.gap = '1rem';
-                style.marginBlock = '.5rem';
+                style.display = "flex";
+                style.gap = "1rem";
+                style.marginBlock = ".5rem";
             }
 
             for (let i = 0; i < socialLinks.length; i++) {
                 let social = socialLinks[i].fontawesomeIcon;
-                let socialAnchor = document.createElement('a');
-                socialAnchor.setAttribute('href',socialLinks[i].url);
+                let socialAnchor = document.createElement("a");
+                socialAnchor.setAttribute("href", socialLinks[i].url);
                 socialAnchor.innerHTML = social;
 
                 // * socialAnchor style
                 {
                     let style = socialAnchor.style;
-                    style.color = 'inherit';
-                    style.fontSize = '2rem';
+                    style.color = "inherit";
+                    style.fontSize = "2rem";
                 }
                 socialDiv.appendChild(socialAnchor);
             }
-            about.appendChild(socialDiv)
+            about.appendChild(socialDiv);
         }
 
         // TODO : Author Bio
         {
-            const bioDiv = document.createElement('p');
+            const bioDiv = document.createElement("p");
             bioDiv.innerText = bio;
 
             // * bidDiv style
             {
                 const style = bioDiv.style;
-                style.width = '100%';
-                style.textAlign = 'center';
-                style.fontSize = '1.125rem';
-                style.marginBlock = '1.5rem';
+                style.width = "100%";
+                style.textAlign = "center";
+                style.fontSize = "1.125rem";
+                style.marginBlock = "1.5rem";
             }
-            about.appendChild(bioDiv)
+            about.appendChild(bioDiv);
+        }
+
+        // TODO : Titles div
+        {
+            const titlesDiv = document.createElement("span");
+            // * title style
+            {
+                const style = titlesDiv.style;
+            }
+
+            for (let i=0;i<titles.length;i++){
+
+            }
+            about.appendChild(titlesDiv);
+        }
+
+        // TODO : Skills div
+        {
+            const skillsDiv = document.createElement("span");
+
+            // * skills style
+            {
+                const style = skillsDiv.style;
+            }
+            for (let i=0;i<skills.length;i++){
+
+            }
+            about.appendChild(skillsDiv);
+        }
+
+        // TODO : Qualification div
+        {
+            const qualificationsDiv = document.createElement("span");
+
+            // * qualifications style
+            {
+                const style = qualificationsDiv.style;
+            }
+
+            for (let i=0;i<qualifications.length;i++){
+                
+            }
+            about.appendChild(qualificationsDiv);
         }
     }
 }
