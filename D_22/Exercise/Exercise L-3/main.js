@@ -78,7 +78,7 @@ let i = 0;
     // * container Styles
     {
         let style = container.style;
-        style.width = "80%";
+        style.width = "70%";
     }
 
     //? challenges divisions
@@ -196,7 +196,85 @@ let i = 0;
 
     // ? About Div
     {
-        const about = document.activeElement('div');
-        
+        let about = document.createElement("div");
+        // * about style
+        {
+            let style = about.style;
+            style.width = "100%";
+            style.display = "flex";
+            style.flexDirection = "column";
+            style.alignItems = "center";
+            style.marginBlock = "1rem";
+            style.color = "#3c3c3c";
+        }
+        container.appendChild(about);
+
+        // ! spreading Author object
+        let {
+            firstName,
+            lastName,
+            titles,
+            qualifications,
+            socialLinks,
+            bio,
+            skills,
+        } = chudamaniChallenges2023.author;
+
+        // TODO : Author Name Div
+        {
+            let authorName = document.createElement("h1");
+            authorName.innerText = `${firstName} ${lastName}`;
+
+            // * authorName Style
+            {
+                let style = authorName.style;
+            }
+            about.appendChild(authorName);
+        }
+
+        // TODO : Author Social links
+        {
+            let socialDiv = document.createElement("h2");
+
+            // * socialDiv Style
+            {
+                const style = socialDiv.style;
+                style.display = 'flex';
+                style.gap = '1rem';
+                style.marginBlock = '.5rem';
+            }
+
+            for (let i = 0; i < socialLinks.length; i++) {
+                let social = socialLinks[i].fontawesomeIcon;
+                let socialAnchor = document.createElement('a');
+                socialAnchor.setAttribute('href',socialLinks[i].url);
+                socialAnchor.innerHTML = social;
+
+                // * socialAnchor style
+                {
+                    let style = socialAnchor.style;
+                    style.color = 'inherit';
+                    style.fontSize = '2rem';
+                }
+                socialDiv.appendChild(socialAnchor);
+            }
+            about.appendChild(socialDiv)
+        }
+
+        // TODO : Author Bio
+        {
+            const bioDiv = document.createElement('p');
+            bioDiv.innerText = bio;
+
+            // * bidDiv style
+            {
+                const style = bioDiv.style;
+                style.width = '100%';
+                style.textAlign = 'center';
+                style.fontSize = '1.125rem';
+                style.marginBlock = '1.5rem';
+            }
+            about.appendChild(bioDiv)
+        }
     }
 }

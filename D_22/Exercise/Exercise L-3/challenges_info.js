@@ -57,6 +57,11 @@ const chudamaniChallenges2023 = {
         fontawesomeIcon: '<i class="fab fa-github-square"></i>',
         url: "https://github.com/cmlowerence",
       },
+      {
+        social: "Dev.to",
+        fontawesomeIcon: '<i class="fab fa-dev"></i>',
+        url: "https://dev.to/cmlowerence",
+      },
     ],
     skills: [
       "Web Development",
