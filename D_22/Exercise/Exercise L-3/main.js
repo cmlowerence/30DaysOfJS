@@ -10,13 +10,23 @@ const warning = "#fbb60e";
 const danger = "#a1163f";
 const colors = [
     "#FF7F50",
-    "#B22222",
+    "#BBd2fd",
     "#FF69B4",
     "#FFFACD",
     "#ffc0cb",
-    "#d72631",
+    "#d9d6ab",
     "#a2d5c6",
 ];
+// ! Random Hex color code function
+const randomHex = ()=>{
+    let hexCodes = '0123456789abcdef';
+    let hexCode= '#';
+    for (let i = 0;i<6;i++){
+        let char = hexCodes.charAt(Math.floor(Math.random()*hexCodes.length));
+        hexCode += char
+    }
+    return hexCode;
+}
 
 // ! HTML Elements
 const mainHeading = document.querySelector("#mainHeading");
@@ -286,9 +296,9 @@ let i = 0;
             // * info style
             {
                 const style = info.style;
-                style.display = 'flex';
-                style.width = '100%';
-                style.justifyContent = 'space-between';
+                style.display = "flex";
+                style.width = "100%";
+                style.justifyContent = "space-between";
             }
 
             // TODO : Titles div
@@ -297,6 +307,9 @@ let i = 0;
                 // * title style
                 {
                     const style = titlesDiv.style;
+                    style.display = "flex";
+                    style.flexDirection = "column";
+                    style.gap = "1rem";
                 }
 
                 // ? titleHeading
@@ -311,16 +324,26 @@ let i = 0;
                     titlesDiv.appendChild(titleHeading);
                 }
 
-                for (let i = 0; i < titles.length; i++) {
-                    let title = document.createElement('div');
-                    let titleText =  Array.from(titles[i]);
-                    console.log()
+                // ? title Titles
+                {
+                    let titlesWrapper = document.createElement("div");
 
-                    // * titleElement style
+                    // * titlesWrapper style
                     {
-
+                        const style = titlesWrapper.style;
                     }
-                    titlesDiv.appendChild(title);
+                    for (let i = 0; i < titles.length; i++) {
+                        let title = document.createElement("div");
+                        title.innerText = `${titles[i][0]} ${titles[i][1]}`;
+
+                        // * titleElement style
+                        {
+                            let style = title.style;
+                            style.fontSize = "1.125rem";
+                        }
+                        titlesWrapper.appendChild(title);
+                    }
+                    titlesDiv.appendChild(titlesWrapper);
                 }
                 info.appendChild(titlesDiv);
             }
@@ -332,6 +355,9 @@ let i = 0;
                 // * skills style
                 {
                     const style = skillsDiv.style;
+                    style.display = "flex";
+                    style.flexDirection = "column";
+                    style.gap = "1rem";
                 }
 
                 // ? Skills Heading
@@ -345,8 +371,28 @@ let i = 0;
                     }
                     skillsDiv.appendChild(skillsHeading);
                 }
-                for (let i = 0; i < skills.length; i++) {
 
+                // ? skillsWrapper
+                {
+                    const skillsWrapper = document.createElement("div");
+
+                    // * skillsWrapper style
+                    {
+                        const style = skillsWrapper.style;
+                        style.fontSize = "1.125rem";
+                    }
+                    for (let i = 0; i < skills.length; i++) {
+                        let skill = document.createElement("div");
+                        skill.innerText = `✅ ${skills[i]}`;
+
+                        // * skill Elements style
+                        {
+                            const style = skill.style;
+                            style.marginBlock = ".3rem";
+                        }
+                        skillsWrapper.appendChild(skill);
+                    }
+                    skillsDiv.appendChild(skillsWrapper);
                 }
                 info.appendChild(skillsDiv);
             }
@@ -358,6 +404,9 @@ let i = 0;
                 // * qualifications style
                 {
                     const style = qualificationsDiv.style;
+                    style.display = "flex";
+                    style.flexDirection = "column";
+                    style.gap = "1rem";
                 }
 
                 // ? Qualification Heading
@@ -371,10 +420,70 @@ let i = 0;
                     }
                     qualificationsDiv.appendChild(qualificationsHeading);
                 }
-                for (let i = 0; i < qualifications.length; i++) {}
+                // ? Qualification Wrapper
+                {
+                    const qualificationsWrapper = document.createElement("div");
+
+                    // * qualificationsWrapper style
+                    {
+                        const style = qualificationsWrapper.style;
+                        style.fontSize = "1.125rem";
+                    }
+                    for (let i = 0; i < qualifications.length; i++) {
+                        let qualification = document.createElement("div");
+                        qualification.innerText = `🔭 ${qualifications[i]}`;
+
+                        // * qualification style
+                        {
+                            const style = qualification.style;
+                        }
+                        qualificationsWrapper.appendChild(qualification);
+                    }
+                    qualificationsDiv.appendChild(qualificationsWrapper);
+                }
                 info.appendChild(qualificationsDiv);
             }
             about.appendChild(info);
+        }
+
+        // TODO : Keywords Div
+        {
+            const keywordsWrapper = document.createElement("div");
+
+            // * keywordsWrapper Style
+            {
+                const style = keywordsWrapper.style;
+                style.width = "100%";
+                style.display = "flex";
+                style.flexWrap = "wrap";
+                style.marginBlock = "2rem";
+                style.justifyContent = 'space-between';
+                style.gap = ".5rem";
+            }
+
+            let colorIndex = 0;
+            for (let i = 0; i < chudamaniChallenges2023.keywords.length; i++) {
+                const keyword = document.createElement("span");
+                keyword.innerText = `#${chudamaniChallenges2023.keywords[i]}`;
+
+                // * keyword style
+                {
+                    const style = keyword.style;
+                    style.backgroundColor = randomHex();
+                    style.color = '#fff';
+                    style.cursor = "pointer";
+                    style.padding = ".43rem";
+                    style.paddingInline = '1rem'
+                    style.borderRadius = ".8rem";
+                    style.fontWeight = '600';
+                    style.flexGrow = '1';
+                    style.textAlign = 'center';
+                    style.textShadow = `1px 1px 2px rgb(0, 0, 0, .6)`;
+                }
+                keywordsWrapper.appendChild(keyword);
+            }
+
+            about.appendChild(keywordsWrapper);
         }
     }
 }
