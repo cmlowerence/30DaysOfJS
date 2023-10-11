@@ -8,10 +8,6 @@ const credentials = {
 const success = "#279b35";
 const warning = "#fbb60e";
 const danger = "#a1163f";
-const mainHeading = document.querySelector("#mainHeading");
-const subHeading = document.querySelector("#subHeading");
-const dateTime = document.querySelector("#dateTime");
-const container = document.querySelector("#container");
 const colors = [
     "#FF7F50",
     "#B22222",
@@ -21,9 +17,15 @@ const colors = [
     "#d72631",
     "#a2d5c6",
 ];
+
+// ! HTML Elements
+const mainHeading = document.querySelector("#mainHeading");
+const subHeading = document.querySelector("#subHeading");
+const dateTime = document.querySelector("#dateTime");
+const container = document.querySelector("#container");
 let i = 0;
 
-// mainHeading
+// ? mainHeading
 {
     const style = mainHeading.style;
     style.fontSize = "1.5rem";
@@ -41,11 +43,11 @@ let i = 0;
     }, 1000);
 }
 
-// subHeading
+// ? subHeading
 {
 }
 
-// dateTime
+// ? dateTime
 {
     const dateTimeTxt = () =>
         new Date().toLocaleString("en-US", {
@@ -81,7 +83,7 @@ let i = 0;
         style.width = "70%";
     }
 
-    //? challenges divisions
+    // ? challenges divisions
     {
         let challenges = document.createElement("div");
 
@@ -277,47 +279,102 @@ let i = 0;
             about.appendChild(bioDiv);
         }
 
-        // TODO : Titles div
+        // TODO : Info Div
         {
-            const titlesDiv = document.createElement("span");
-            // * title style
+            const info = document.createElement("div");
+
+            // * info style
             {
-                const style = titlesDiv.style;
+                const style = info.style;
+                style.display = 'flex';
+                style.width = '100%';
+                style.justifyContent = 'space-between';
             }
 
-            for (let i=0;i<titles.length;i++){
-
-            }
-            about.appendChild(titlesDiv);
-        }
-
-        // TODO : Skills div
-        {
-            const skillsDiv = document.createElement("span");
-
-            // * skills style
+            // TODO : Titles div
             {
-                const style = skillsDiv.style;
+                const titlesDiv = document.createElement("span");
+                // * title style
+                {
+                    const style = titlesDiv.style;
+                }
+
+                // ? titleHeading
+                {
+                    let titleHeading = document.createElement("h3");
+                    titleHeading.innerText = "Titles";
+
+                    // * titleHeading style
+                    {
+                        let style = titleHeading.style;
+                    }
+                    titlesDiv.appendChild(titleHeading);
+                }
+
+                for (let i = 0; i < titles.length; i++) {
+                    let title = document.createElement('div');
+                    let titleText =  Array.from(titles[i]);
+                    console.log()
+
+                    // * titleElement style
+                    {
+
+                    }
+                    titlesDiv.appendChild(title);
+                }
+                info.appendChild(titlesDiv);
             }
-            for (let i=0;i<skills.length;i++){
 
-            }
-            about.appendChild(skillsDiv);
-        }
-
-        // TODO : Qualification div
-        {
-            const qualificationsDiv = document.createElement("span");
-
-            // * qualifications style
+            // TODO : Skills div
             {
-                const style = qualificationsDiv.style;
+                const skillsDiv = document.createElement("span");
+
+                // * skills style
+                {
+                    const style = skillsDiv.style;
+                }
+
+                // ? Skills Heading
+                {
+                    let skillsHeading = document.createElement("h3");
+                    skillsHeading.innerText = "Skills";
+
+                    // * skillsHeading style
+                    {
+                        let style = skillsHeading.style;
+                    }
+                    skillsDiv.appendChild(skillsHeading);
+                }
+                for (let i = 0; i < skills.length; i++) {
+
+                }
+                info.appendChild(skillsDiv);
             }
 
-            for (let i=0;i<qualifications.length;i++){
-                
+            // TODO : Qualification div
+            {
+                const qualificationsDiv = document.createElement("span");
+
+                // * qualifications style
+                {
+                    const style = qualificationsDiv.style;
+                }
+
+                // ? Qualification Heading
+                {
+                    let qualificationsHeading = document.createElement("h3");
+                    qualificationsHeading.innerText = "Qualifications";
+
+                    // * Qualification Heading Style
+                    {
+                        const style = qualificationsHeading.style;
+                    }
+                    qualificationsDiv.appendChild(qualificationsHeading);
+                }
+                for (let i = 0; i < qualifications.length; i++) {}
+                info.appendChild(qualificationsDiv);
             }
-            about.appendChild(qualificationsDiv);
+            about.appendChild(info);
         }
     }
 }
