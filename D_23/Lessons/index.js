@@ -195,3 +195,57 @@ Let tyr them all:
         console.log('%c Blur event triggered...',"color : green;")
     })
 }
+
+// TODO : Key down
+{
+    const input = document.createElement('input');
+    input.placeholder = 'Key down';
+    document.body.appendChild(input);
+    input.addEventListener('keydown',(e)=>{
+        console.log('%c Key down event is triggered...',"color : green;")
+    })
+}
+
+// TODO : Key up
+{
+    const input = document.createElement('input');
+    input.placeholder = 'Key up';
+    document.body.appendChild(input);
+    input.addEventListener('keyup',(e)=>{
+        console.log('%c Key up event is triggered...',"color : red;")
+    })
+}
+
+// TODO : Key Press
+{
+    const input = document.createElement('input');
+    input.placeholder = 'Key press';
+    document.body.appendChild(input);
+    input.addEventListener('keypress',(e)=>{
+        console.log('%c Key press event is triggered...',"color : blue;")
+    })
+}
+
+// TODO : On load
+{
+    window.addEventListener('load',(e)=>{
+        alert('The page is loaded...')
+    })
+}
+
+// ? Getting value from an input element
+/*
+* We usually fill forms and forms accept data. Form fields are created using input HTML element. Let us build a small application which allow us to calculate body mass index of a person using two input fields, one button and one p tag
+ */
+
+{
+    const mass = document.querySelector('#mass');
+    const height = document.querySelector('#height');
+    const button = document.querySelector('#bmi');
+    let bmi;
+    button.addEventListener('click',()=>{
+        bmi = mass.value / height.value **2;
+        alert(`Your bmi is ${bmi.toFixed(2)}`);
+        console.log(bmi)
+    })
+}
