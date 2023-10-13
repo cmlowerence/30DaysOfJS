@@ -2,12 +2,16 @@ const credentials = {
     Author: "Chudamani",
     Topic: "JavaScript : Event Listeners (DOM - Day : 3)",
     startDate: "11/10/2023",
-    endDate: "/10/2023",
+    endDate: "13/10/2023",
 };
 document.body.style.display = "grid";
 document.body.style.gap = "1rem";
 document.body.style.justifyContent = "center";
 document.body.style.alignItems = "center";
+document.body.style.backgroundColor = '#3c3c3c';
+document.body.style.color = '#fff';
+document.body.style.fontFamily = "cursive";
+
 // TODO : Event Listeners
 /* 
 ? Common HTML events : onclick, onchange, onmouseover, onmouseout, onkeydown, onkeyup, onload. We can add event listener methods to any DOM object. We use addEventListener() method to listen different event types on HTML elements. The addEventListener() method takes two arguments, an event listener and a callback function.
@@ -238,6 +242,7 @@ Let tyr them all:
 * We usually fill forms and forms accept data. Form fields are created using input HTML element. Let us build a small application which allow us to calculate body mass index of a person using two input fields, one button and one p tag
  */
 
+// Q: Input value
 {
     const mass = document.querySelector('#mass');
     const height = document.querySelector('#height');
@@ -247,5 +252,50 @@ Let tyr them all:
         bmi = mass.value / height.value **2;
         alert(`Your bmi is ${bmi.toFixed(2)}`);
         console.log(bmi)
+    })
+}
+
+// Q: input event and change
+/*
+    *In the above example, we managed to get input values from two input fields by clicking button. How about if we want to get value without clicking the button. We can use the change or input event type to get data right away from the input field when the field is on focus. Let us see how we will handle that: 
+*/
+{
+    // ! Using input event
+    {
+        const input = document.createElement('input');
+        input.placeholder = 'Input Event';
+        input.addEventListener('input',()=>{
+            console.log('%c Input Event is triggered...',"color: red;")
+        })
+        document.body.appendChild(input);
+    }
+    // ! Using change event
+    {
+        const input = document.createElement('input');
+        input.placeholder = 'Change Event';
+        input.addEventListener('change',()=>{
+            console.log('%c Change Event is triggered...',"color: green;")
+        })
+        document.body.appendChild(input);
+    }
+}
+
+// Q: Blur event
+// * In contrast to input or ChannelMergerNode, the blur event occur when the input field is not on focus.
+{
+    const blur = document.createElement('input');
+    blur.placeholder = 'Blur Event';
+    blur.addEventListener('blur',()=>{
+        console.log('%c Blur event is triggered...',"color : orange;",blur.value)
+    })
+    document.body.appendChild(blur);
+}
+
+// Q: Keypress, keydown and keyup
+// * We can access all the key numbers of the keyboard using different event listener types. Let us use keypress and get the keyCode of each keyboard keys.
+{
+    const keypress = document.createElement('p');
+    document.body.addEventListener('keypress',(e)=>{
+        console.log(e.key);
     })
 }
