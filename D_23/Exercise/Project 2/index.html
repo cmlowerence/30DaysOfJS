@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D_23 : Exercise Project 2</title>
-</head>
-<body>
-    
-    <script src="./main.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>D_23 : Exercise Project 2</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: cursive;
+        }
+        .msgDiv {
+            display: flex;
+            min-width: 50%;
+            gap: 0.8rem;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            border-radius: 0.3rem;
+            justify-content: center;
+            padding-inline: 1rem;
+            padding-block: 0.5rem;
+            font-size: 4vw;
+        }
+        .msgTxt {
+            font-weight: 600;
+            color: #3c3c3c;
+        }
+        .msgKey {
+            display: none;
+            color: hsl(120, 95%, 33%);
+        }
+        .keyCode {
+            margin-top: 2rem;
+            display: none;
+            width : 4rem;
+            aspect-ratio: 1;
+            font-size: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            color: hsl(120, 95%, 33%);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: .5rem;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <script src="./main.js"></script>
+    </body>
 </html>
