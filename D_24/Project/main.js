@@ -1,5 +1,5 @@
 const calcWt = (m, g) => {
-    return m * g;
+    return (m * g).toFixed(2);
 };
 
 const planetData = {

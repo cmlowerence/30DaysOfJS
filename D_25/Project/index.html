@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>World Countries Data</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background-color: #d6d6d6;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+                "Helvetica Neue", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            display: grid;
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            gap: 0.5rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            word-spacing: 6px;
+            letter-spacing: 2px;
+            color: hsl(39, 94%, 52%);
+            text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.4);
+        }
+        header p {
+            font-size: 1rem;
+            color: hsl(0, 0%, 28%);
+            margin-bottom: 1rem;
+        }
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap : 1rem;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 0.6rem;
+            padding-block-start: 1.3rem;
+            padding-block-end: .8rem;
+            background-color: hsl(0, 0%, 100%);
+            box-shadow: 2px -2px 6px hsla(38, 90%, 20%, 0.4),
+                inset 1px -1px 2px hsla(0, 0%, 0%, 0.4);
+        }
+        .buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            outline-color: transparent;
+            padding-inline: 0.7rem;
+            padding-block: 0.45rem;
+            border: 0.5px solid hsl(39, 94%, 52%);
+            border-radius: 3px;
+            background-color: hsl(39, 94%, 52%);
+            font-size: 0.8rem;
+            color: hsl(0, 0%, 28%);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .btn:hover {
+            background-color: hsl(39, 94%, 60%);
+        }
+        .btn:active {
+            background-color: hsl(39, 94%, 49%);
+        }
+        .btn.active{
+            background-color: hsl(120, 79%, 31%);
+            border-color: hsl(120, 79%, 31%);
+            color : hsl(0, 0%, 100%);
+        }
+        .data_desc {
+            font-size: 0.9rem;
+            color: hsl(0, 0%, 28%);
+        }
+        .dataBar{
+            width: 80%;
+            padding : 1rem;
+            display : grid;
+            gap : .3rem;
+            justify-content: center;
+        }
+        .langWrapper{
+            width : 100%;
+            padding : 1rem;
+            display : grid;
+            gap : .3rem;
+            justify-content: center;
+        }
+        .langDiv{
+            width : 100%;
+            display : grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 5fr 1fr;
+        }
+        .langBarDiv{
+            height: 2rem;
+            display : grid;
+        }
+        .langBar{
+            height: 100%;
+        }
+        .popWrapper{
+            width : 100%;
+            padding : 1rem;
+            display : grid;
+            gap : .3rem;
+            justify-content: center;
+        }
+        .population-element{
+            display: grid;
+            grid-template-columns: 1fr 5fr 1fr;
+        }
+    </style>
+    <body>
+        <header>
+            <h1>World Countries Data</h1>
+            <p>
+                Currently, we have <span id="contCount">Total Countries</span>
+            </p>
+        </header>
+        <main>
+            <div class="options">
+                <span class="buttons">
+                    <button class="btn button-population">POPULATION</button>
+                    <button class="btn button-languages ">LANGUAGES</button>
+                </span>
+                <p class="data_desc">10 Most Spoken Languages in the world</p>
+            </div>
+            <div class="dataBar"></div>
+        </main>
+        <script src="./index.js"></script>
+    </body>
+</html>
