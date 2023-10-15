@@ -1,0 +1,3 @@
+const calcWt = (p,wt)=>{
+    
+}
