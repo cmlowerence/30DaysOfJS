@@ -28,7 +28,7 @@
     h1{
         font-weight: 500;
         font-size: 2rem;
-        margin-block: 2rem;
+        margin-block-end: 2rem;
     }
     .inputWrapper{
         display: grid;
@@ -50,6 +50,7 @@
         padding-inline: .8rem;
         border-radius: .5rem;
         cursor: pointer;
+        background-color: hsla(0, 0%, 100%, 0.904);
     }
     select > option{
         cursor: pointer;
@@ -94,7 +95,19 @@
         width: 100%;
     }
     .contentTxt{
-        display: flex;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap : 1rem;
+        background-color: hsla(0, 0%, 69%, .2);
+        width : 40%;
+        padding-block : 1rem;
+        padding-inline : 1.5rem;
+        text-align: center;
+    }
+    .contentErr{
+        display : none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -123,9 +136,9 @@
     <div class="bgStars"></div>
     <h1 class="pageHeading">Calculate a weight of an object on a planet in our solar system</h1>
     <div class="inputWrapper">
-        <input type="text" name="weight" id="weight" placeholder="Mass in kilogram">
+        <input type="text" name="mass" id="mass" placeholder="Mass in kilogram">
         <select name="planet" id="planet" class="planets">
-            <option id="selectPlaceholder" selected disabled hidden>--select-planet--</option>
+            <option id="selectPlaceholder" selected disabled hidden value="">--select-planet--</option>
             <option value="mercury">Mercury</option>
             <option value="venus">Venus</option>
             <option value="earth">Earth</option>
@@ -147,6 +160,7 @@
             <div class="weightTxt">Want to Know, how heavier an object on other planet...</div>
             <div class="weightCircle">x kg</div>
         </div>
+        <div class="contentErr"></div>
     </div>
     <script src="./main.js"></script>
 </body>
