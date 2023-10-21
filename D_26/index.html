@@ -5,50 +5,185 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Countries</title>
     </head>
+    <link
+        rel="stylesheet"
+        href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body,html{
-            width : 100%;
+        body,
+        html {
+            width: 100%;
+            min-height: 100vh;
         }
-        body{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+                "Helvetica Neue", sans-serif;
         }
-        header{
-            display : flex;
+        header {
+            display: flex;
             flex-direction: column;
-            width : 100%;
-            background: url("./images/globe-2.jpg") no-repeat;
+            width: 100%;
+            padding-block: 5rem;
+            justify-content: center;
+            align-items: center;
+            color: hsl(0, 0%, 100%);
+            background-image: linear-gradient(
+                    to bottom,
+                    rgba(52, 135, 223, 0.656),
+                    rgba(149, 166, 179, 0.588)
+                ),
+                url("./images/globe-2.jpg");
+            background-repeat: no-repeat;
             background-size: cover;
-            /* background-color: red; */
+            text-shadow: 1px 1px 3px hsla(0, 0%, 0%, 0.588);
         }
-        .card{
+        header h1 {
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 3rem;
+            letter-spacing: 8px;
+            margin-bottom: 0.2rem;
+        }
+        .totalCountries {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+        .filteredCountriesDesc {
+            font-size: 0.8rem;
+        }
+        .filteredCountriesDesc .key {
+            color: rgb(245, 169, 26);
+            font-style: italic;
+        }
+        .filteredCountriesDesc .count {
+            color: rgb(30, 67, 251);
+            font-style: italic;
+        }
+        .buttons {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 0.9rem;
+        }
+        .btn {
+            padding-block: 0.8rem;
+            padding-inline: 1.2rem;
+            outline-color: transparent;
+            border: none;
+            border-radius: 0.3rem;
+            background-color: hsl(300, 56%, 46%);
+            color: hsl(0, 0%, 100%);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s all ease-in-out;
+        }
+        .uil-exchange::before {
+            transform: rotate(90deg);
+            font-weight: 700;
+        }
+        .btn:hover {
+            background-color: hsl(300, 100%, 35%);
+        }
+        .btn:active,
+        .btn.active:active {
+            flex-shrink: 120%;
+            color: #3c3c3c;
+            background-color: #dedede;
+        }
+        .btn.active {
+            background-color: hsl(285, 100%, 26%);
+        }
+        .searchBar {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        #keyword {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-inline: 1.7rem;
+            padding-block: 0.5rem;
+            border-radius: 1.7rem;
+            width: 40%;
+            border: none;
+            outline-color: transparent;
+            text-align: center;
+            color: hsl(0, 1%, 30%);
+        }
+        .searchBar .searchIcon {
+            font-size: 1.8rem;
+            color: hsl(0, 0%, 84%);
+            cursor: pointer;
+            transition: 0.2s all ease-in-out;
+        }
+        .searchBar .searchIcon:hover {
+            color: hsl(0, 0%, 100%);
+        }
+        .searchBar .searchIcon:active {
+            color: hsl(120, 97%, 29%);
+        }
+        main{
+            display : grid;
+            grid-template-columns: repeat(6,1fr);
+        }
+        .card {
             aspect-ratio: 1;
-            width : 2rem;
-            background: url('./images/map_image.jpg') no-repeat;
+            width: 8rem;
+            background-image: linear-gradient(
+                    to bottom,
+                    hsla(208, 52%, 37%, 0.574),
+                    hsla(209, 26%, 54%, 0.456)
+                ),
+                url("./images/map_image.jpg");
+            background-repeat: no-repeat;
             background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: hsl(0, 0%, 100%);
+            border-radius: .8rem;
+            padding: .5rem;
         }
     </style>
     <body>
         <header>
             <h1>WORLD Countries List</h1>
-            <span class="totalCountries"
-                >Total Number of countries : <span class="countriesCount"></span
-            ></span>
+            <span class="totalCountries">
+                Total Number of countries : <span class="countriesCount"></span>
+            </span>
             <span class="filteredCountriesDesc"></span>
             <div class="buttons">
-                <button>Starting Word</button><button>Search With any word</button><button>||</button>
+                <button class="btn active">Starting Word</button>
+                <button class="btn">Search With any word</button>
+                <button class="btn">
+                    <i class="uil uil-exchange"></i>
+                </button>
             </div>
             <div class="searchBar">
-                <input type="text" name="country" id="keyword" placeholder="Search Country">
-                <span class="searchIcon"></span>
+                <input
+                    type="text"
+                    name="country"
+                    id="keyword"
+                    placeholder="Search Country"
+                />
+                <span class="searchIcon"
+                    ><i class="uil uil-search-alt"></i
+                ></span>
             </div>
         </header>
         <main>
-
+            <div class="card">Hello</div>
         </main>
         <script src="./index.js"></script>
     </body>
