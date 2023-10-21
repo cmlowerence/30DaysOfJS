@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Countries</title>
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body,html{
+            width : 100%;
+        }
+        body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        header{
+            display : flex;
+            flex-direction: column;
+            width : 100%;
+            background: url("./images/globe-2.jpg") no-repeat;
+            background-size: cover;
+            /* background-color: red; */
+        }
+        .card{
+            aspect-ratio: 1;
+            width : 2rem;
+            background: url('./images/map_image.jpg') no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <body>
+        <header>
+            <h1>WORLD Countries List</h1>
+            <span class="totalCountries"
+                >Total Number of countries : <span class="countriesCount"></span
+            ></span>
+            <span class="filteredCountriesDesc"></span>
+            <div class="buttons">
+                <button>Starting Word</button><button>Search With any word</button><button>||</button>
+            </div>
+            <div class="searchBar">
+                <input type="text" name="country" id="keyword" placeholder="Search Country">
+                <span class="searchIcon"></span>
+            </div>
+        </header>
+        <main>
+
+        </main>
+        <script src="./index.js"></script>
+    </body>
+</html>
