@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body{
+        width: 100%;
+        min-height: 100vh;
+    }
+    body{
+        padding-block-start: 5%;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    main{
+        max-width: 80%;
+        margin: auto;
+    }
+    .heading{
+        color: #333;
+        margin-bottom: 2rem;
+    }
+    h1.author{
+        letter-spacing: .4rem;
+        word-spacing: .8rem;
+        font-size: 5vw;
+    }
+    .skillsDiv{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 1rem;
+        border-radius: .5rem;
+        width: auto;
+        height : 3.6rem;
+        background-color: hsla(0, 56%, 80%, 0.742);
+        margin-bottom: 1rem;
+        padding-inline-start: 1rem;
+        font-size: 1.2rem;
+    }
+    .skillName{
+        color: #868484;
+        transition: 1s all ease-in-out;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px hsla(0, 5%, 92%, 0.496);
+    }
+    .introPara{
+        line-height: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+    }
+    .courseCards{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        text-align: center;
+        gap : 1rem;
+        margin-block: 2rem;
+    }
+    .card{
+        text-transform: uppercase;
+        font-weight: 600;
+        aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        color: #333;
+        padding : .5rem;
+        border-radius: .3rem;
+        transition: .3s all ease-in-out;
+    }
+    .card:hover{
+        background-color: hsla(0, 56%, 80%, 0.742);
+        transform: scale(110%);
+    }
+    .teachingSkills{
+        display : flex;
+        font-size: 1.2rem;
+        color: #333;
+        /* transition: 1s all ease-in; */
+    }
+    .tech{
+        font-size: 3rem;
+        font-weight: 600;
+        transition: 3s all ease-in;
+        text-transform: uppercase;
+        opacity : 0;
+        transition: 1s all ease-in;
+        text-shadow: 1px 1px 2px hsla(0, 0%, 13%, 0.496);
+    }
+</style>
+<body>
+    <main>
+        <div class="heading">
+            <h1 class="author"></h1>
+        </div>
+
+        <!-- Animated text -->
+        <div class="skillsDiv"><span class="skillIcon"></span><span class="skillName"></span>
+        </div>
+        <!-- Introduction Paragraph -->
+        <p class="introPara"></p>
+
+        <!-- Course cards -->
+        <div class="courseCards">
+            <span class="card card_1">
+                Javascript For Everyone
+            </span>
+            <span class="card card_2">
+                30Days of Python
+            </span>
+            <span class="card card_3">
+                30Days of Javascript
+            </span>
+        </div>
+
+        <!-- Teaching Skills -->
+        <div class="teachingSkills">
+            <p>The technologies I'm learning <span class="tech"></span></p>
+        </div>
+    </main>
+    <script src="./scripts/challenges_info.js"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
