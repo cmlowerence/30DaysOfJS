@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Countries</title>
     </head>
-    <link
+    <!-- <link
         rel="stylesheet"
         href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
-    />
+    /> -->
     <style>
         * {
             margin: 0;
@@ -24,6 +24,9 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont,
                 "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
                 "Helvetica Neue", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
             display: flex;
@@ -54,6 +57,7 @@
             font-size: 1.1rem;
             font-weight: 500;
             margin-bottom: 0.8rem;
+            text-transform: capitalize;
         }
         .filteredCountriesDesc {
             font-size: 0.8rem;
@@ -120,6 +124,9 @@
             text-align: center;
             color: hsl(0, 1%, 30%);
         }
+        #keyword:focus-within{
+            text-align: left;
+        }
         .searchBar .searchIcon {
             font-size: 1.8rem;
             color: hsl(0, 0%, 84%);
@@ -135,10 +142,13 @@
         main{
             display : grid;
             grid-template-columns: repeat(6,1fr);
+            gap : 1rem;
+            width: 80%;
+            padding-block-start: 10%;
         }
         .card {
             aspect-ratio: 1;
-            width: 8rem;
+            /* width: 8rem; */
             background-image: linear-gradient(
                     to bottom,
                     hsla(208, 52%, 37%, 0.574),
@@ -150,24 +160,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 2vw;
+            text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.588);
+            text-align: center;
             color: hsl(0, 0%, 100%);
             border-radius: .8rem;
             padding: .5rem;
+            cursor: pointer;
         }
     </style>
     <body>
         <header>
             <h1>WORLD Countries List</h1>
             <span class="totalCountries">
-                Total Number of countries : <span class="countriesCount"></span>
+                Total Number of Countries : <span class="countriesCount"></span>
             </span>
             <span class="filteredCountriesDesc"></span>
             <div class="buttons">
-                <button class="btn active">Starting Word</button>
-                <button class="btn">Search With any word</button>
-                <button class="btn">
-                    <i class="uil uil-exchange"></i>
+                <button class="btn button active">Starting Word</button>
+                <button class="btn button">Search With any word</button>
+                <button class="btn sort-btn" title="A to Z">
+                    Sort
                 </button>
             </div>
             <div class="searchBar">
@@ -177,14 +190,12 @@
                     id="keyword"
                     placeholder="Search Country"
                 />
-                <span class="searchIcon"
-                    ><i class="uil uil-search-alt"></i
-                ></span>
+                <span class="searchIcon">
+                    <i class="uil uil-search-alt"></i>
+                </span>
             </div>
         </header>
-        <main>
-            <div class="card">Hello</div>
-        </main>
+        <main></main>
         <script src="./index.js"></script>
     </body>
 </html>
