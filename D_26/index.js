@@ -202,11 +202,6 @@ const searchBtn = document.querySelector(".searchIcon");
 const fButtons = document.querySelectorAll(".button"); // * All filter buttons
 const sortBtn = document.querySelector(".sort-btn");
 
-sortBtn.addEventListener("click", () => {
-    sortBtn.classList.toggle("descending");
-    if (sortBtn.classList.contains("descending")) {
-    }
-});
 // ? Entering Total countries
 countriesCount.innerText = countries.length;
 
@@ -246,7 +241,7 @@ const dataElement = (dataArr, parent) => {
 }
 
 // Q: Modifying DOM with data
-let data;
+let data = [];
 keyword.addEventListener("input", function () {
     const fKey = this.value;
     main.innerHTML = "";
@@ -259,27 +254,11 @@ keyword.addEventListener("input", function () {
     } else if (fButtons[1].classList.contains("active")) {
         data = filterAny(countries, fKey);
         dataElement(data, main);
-        // sortBtn.addEventListener("click", () => {
-        //     main.innerHTML = "";
-        //     data = data.sort();
-        //     sortBtn.classList.toggle("descending");
-        //     if (sortBtn.classList.contains("descending")) {
-        //         let len = data.length;
-        //         let newData = [];
-        //         for (let i = len - 1; i >= 0; i--) {
-        //             newData.push(data[i]);
-        //         }
-        //         console.log(newData)
-        //         dataElement(newData, main);
-        //     } else {
-        //         dataElement(data, main);
-        //     }
-        // });
     } else {
         console.log("Error");
     }
 });
-sortBtn.addEventListener("click", () => {
+sortBtn.addEventListener("click", (e) => {
     main.innerHTML = "";
     sortBtn.classList.toggle("descending");
     if (sortBtn.classList.contains("descending")) {
@@ -288,10 +267,10 @@ sortBtn.addEventListener("click", () => {
         for (let i = len - 1; i >= 0; i--) {
             newData.push(data[i]);
         }
-        sortBtn.setAttribute('title','Z to A')
+        sortBtn.setAttribute("title", "Z to A");
         dataElement(newData, main);
     } else {
-        sortBtn.setAttribute('title','A to Z')
+        sortBtn.setAttribute("title", "A to Z");
         dataElement(data, main);
     }
 });
