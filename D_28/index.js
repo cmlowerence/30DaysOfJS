@@ -51,22 +51,32 @@ smtBtn.addEventListener("click", () => {
         if (/^\w?$/g.test(input.value)) return false;
         else return true;
     };
-    if (isValidInput(fName) && isValidInput(lName) && isValidInput(country) && isValidScore){
+    if (
+        isValidInput(fName) &&
+        isValidInput(lName) &&
+        isValidInput(country) &&
+        isValidScore
+    ) {
         err.style.display = "none";
-        container.innerHTML += addCandidate(fName.value,lName.value,country.value,score.value);
+        container.innerHTML += addCandidate(
+            fName.value,
+            lName.value,
+            country.value,
+            score.value
+        );
         fName.value = "";
         lName.value = "";
         country.value = "";
         score.value = "";
-    }else{
+    } else {
         err.style.display = "block";
-        if(!isValidScore){
-            if(!isValidInput(score)){
+        if (!isValidScore) {
+            if (!isValidInput(score)) {
                 err.innerText = "All fields are required";
-            }else{
-                err.innerText = 'Score must be in numbers';
+            } else {
+                err.innerText = "Score must be in numbers";
             }
-        }else{
+        } else {
             err.innerText = "All fields are required";
         }
     }
