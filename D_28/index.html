@@ -31,20 +31,26 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-        form{
-            max-width: 100%;
-            display: grid;
-            grid-template-columns: repeat(5,1fr);
+        .form{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
             gap : 1rem;
         }
         input[type=text]{
             display : flex;
+            min-width: 100px;
+            width : calc(100%/5 - 4rem);
             border : 1px solid #333333;
             font-size: 1rem;
-            padding-inline: 1rem;
+            padding-inline: .5rem;
             padding-block: .5rem;
             outline-color: hotpink;
             border-radius: .4rem;
+            flex-shrink: 1;
+            flex-grow: 1;
         }
         .btn{
             padding-block : .5rem;
@@ -55,23 +61,99 @@
             color : #fff;
             background-color: hsla(19, 83%, 79%, 0.839);
             font-weight: 600;
-            text-shadow: 1px 1px 1px hsla(0, 0%, 22%, 0.632);
+            text-shadow: 1px 1px 5px hsla(0, 0%, 22%, 0.632);
             font-size: 1.1rem;
             cursor: pointer;
             transition: .2s all ease-in-out;
+            flex-grow: 1;
+            flex-shrink: 1;
         }
         .btn:hover{
-            transform: scale(1.1);
+            transform: scale(1.06);
             background-color: hsla(19, 76%, 69%, 0.839);
         }
         .btn:active{
             transform : scale(.9);
         }
+        .errorMsg{
+            margin-block: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: hsla(0, 88%, 56%, 0.894);
+        }
+        /* =============== Candidate container Start ================ */
+        .candidateContainer{
+            width : 100%;
+            margin-top: 2rem;
+            display: grid;
+            gap : 1rem;
+        }
+        .candidate{
+            width : 100%;
+            display : flex;
+            align-items: center;
+            background-color: hsla(19, 77%, 75%, 0.839);
+            border-radius: .3rem;
+            padding-block: .5rem;
+        }
+        .details{
+            width : 70%;
+            display: grid;
+            grid-template-columns: repeat(3,30%);
+            align-items: center;
+            justify-content: space-between;
+            padding-inline-start: 1rem;
+            font-size: 1rem;
+        }   
+        /* .details span{
+            width : 30%;
+        } */
+        .details .name-wrapper{
+            display : flex;
+            flex-direction: column;
+            text-align: start;
+            gap : .4rem;
+        }
+        .details .name-wrapper .name,.country,.score{
+            font-size: 1rem;
+            color: #393838;
+            font-size: 1.125rem;
+        }
+        .details .name-wrapper .date{
+            font-size: .8rem;
+            color: #606060;
+        }
+        .options{
+            width : 30%;
+            display: flex;
+            gap : .5rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn_round{
+            aspect-ratio: 1;
+            outline-color: hotpink;
+            border : none;
+            width : 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 1rem;
+            background-color: hsl(0, 2%, 79%);
+        }
+        .btn_round:hover{
+            background-color: hsl(0, 1%, 70%);
+        }
+        .btn_round:active{
+            transform: scale(.85);
+            background-color: hsl(0, 1%, 63%);
+        }
     </style>
     <body>
         <main>
             <h1>30 Days Of JavaScript Challenge LeaderBoard</h1>
-            <form>
+            <div class = 'form'>
                 <input
                     type="text"
                     name="fName"
@@ -97,8 +179,8 @@
                     placeholder="Score"
                 />
                 <button class="btn">Add Player</button>
-                <div class="errorMsg"></div>
-            </form>
+            </div>
+            <div class="errorMsg"></div>
             <div class="candidateContainer"></div>
         </main>
         <script src="./index.js"></script>
