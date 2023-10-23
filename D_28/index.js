@@ -62,20 +62,23 @@ const addCandidate = (fName, lName, country, score) => {
         // Option Section
         const optionsDiv = document.createElement("span");
         optionsDiv.classList.add("options");
-        
+
         // Removing Candidate Button
         const rmCandidateBtn = document.createElement("button");
         rmCandidateBtn.classList.add("btn_round");
+        rmCandidateBtn.setAttribute('title','Remove Candidate')
         rmCandidateBtn.innerText = "🗑";
-
+        
         // Adding Score +5
         const addScoreBtn = document.createElement("button");
         addScoreBtn.classList.add("btn_round");
+        addScoreBtn.setAttribute('title','Score +5')
         addScoreBtn.innerText = "+5";
-
+        
         // Subtracting Score -5
         const subScoreBtn = document.createElement("button");
         subScoreBtn.classList.add("btn_round");
+        subScoreBtn.setAttribute('title','Score -5')
         subScoreBtn.innerText = "-5";
         // Some Event Listeners on buttons
         rmCandidateBtn.addEventListener("click", () => candidateDiv.remove());
