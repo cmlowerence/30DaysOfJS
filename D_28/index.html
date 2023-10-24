@@ -94,7 +94,8 @@
             align-items: center;
             background-color: hsla(19, 77%, 75%, 0.839);
             border-radius: .3rem;
-            padding-block: .5rem;
+            padding-block: .8rem;
+            transition : .3s all ease-in-out;
         }
         .details{
             width : 70%;
@@ -126,13 +127,14 @@
         .options{
             width : 30%;
             display: flex;
-            gap : .5rem;
+            gap : .8rem;
             align-items: center;
             justify-content: center;
         }
         .btn_round{
             aspect-ratio: 1;
             outline-color: hotpink;
+            outline-width: 4px;
             border : none;
             width : 3rem;
             display: flex;
@@ -140,15 +142,25 @@
             align-items: center;
             border-radius: 50%;
             font-size: 1rem;
-            background-color: hsl(0, 2%, 79%);
+            background-color: hsl(0, 73%, 78%);
             transition : .2s ease-in-out;
         }
         .btn_round:hover{
-            background-color: hsl(0, 1%, 70%);
+            background-color: hsl(0, 0%, 85%);
+            transform: scale(1.2);
         }
         .btn_round:active{
             transform: scale(.85);
             background-color: hsl(0, 1%, 63%);
+        }
+        .rm_btn{
+            fill : rgb(242, 19, 19);
+        }
+        .add_btn{
+            color : rgb(2, 94, 2);
+        }
+        .sub_btn{
+            color : rgb(1, 87, 83);
         }
     </style>
     <body>
