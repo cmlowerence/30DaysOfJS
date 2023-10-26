@@ -84,18 +84,26 @@
         /* =============== Candidate container Start ================ */
         .candidateContainer{
             width : 100%;
+            height: auto;
             margin-top: 2rem;
             display: grid;
             gap : 1rem;
+            transition : .7s all ease-in-out;
         }
         .candidate{
             width : 100%;
+            height : auto;
             display : flex;
-            align-items: center;
+            align-items: start;
+            justify-content: start;
             background-color: hsla(19, 77%, 75%, 0.839);
             border-radius: .3rem;
             padding-block: .8rem;
-            transition : .3s all ease-in-out;
+            transition : .7s all ease-in-out;
+            overflow-y: hidden;
+        }
+        .candidate:hover{
+            /* padding: 0; */
         }
         .details{
             width : 70%;

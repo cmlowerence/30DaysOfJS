@@ -11,13 +11,16 @@ const smtBtn = document.querySelector(".btn");
 const properCase = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
 // ! Buttons Action functions
 const rmCandidateFunc = (e) => {
     e.parentNode.parentNode.style.opacity = "0";
+    e.parentNode.parentNode.style.padding = "0";
+    e.parentNode.parentNode.style.transform = "scale(0)";
     setTimeout(() => {
-        e.parentNode.parentNode.remove();
+        e.parentNode.parentNode.remove()
         window.localStorage.setItem("LeaderBoard", `${container.innerHTML}`);
-    }, 500);
+    }, 700);
 };
 const addScoreFunc = (e) => {
     let scoreElement = e.parentNode.previousSibling.childNodes[2];
