@@ -9,8 +9,8 @@
 <body>
     <header>
         <h1 class="mainHeading">World Countries Data</h1>
-        <div class="descHeading">Currently, we have <span id="contries_count"></span> countries</div>
-        <div id="searchDetailDesc"><span id="searchResCount"></span> satisfies the search criteria</div>
+        <div class="descHeading">Currently, we have <span id="countries_count"></span> countries</div>
+        <div id="searchDetailDesc"><span id="searchResCount"></span> items satisfies the search criteria</div>
     </header>
     <main>
         <div class="searchWrapper">
@@ -18,30 +18,22 @@
                 <input type="text" name="query" placeholder = "Search Country" id="searchQuery">
             </div>
             <div class="buttons">
-                <button class="btn btn__sort" id="sortByName"><span>Name</span></button>
-                <button class="btn btn__sort" id="sortByCapital"><span>Capital</span></button>
-                <button class="btn btn__sort" id="sortByPopulation"><span>Population</span></button>
-                <button class="btn btn__redirect"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M640-160v-280h160v280H640Zm-240 0v-640h160v640H400Zm-240 0v-440h160v440H160Z"/></svg></button>
+                <button class="btn btn__sort active" id="sortByName"><span class="btn__sort_txt">Name</span></button>
+                <button class="btn btn__sort" id="sortByCapital"><span class="btn__sort_txt">Capital</span></button>
+                <button class="btn btn__sort" id="sortByPopulation"><span class="btn__sort_txt">Population</span></button>
+                <a class="btn btn__redirect" href="#statBarDiv"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M640-160v-280h160v280H640Zm-240 0v-640h160v640H400Zm-240 0v-440h160v440H160Z"/></svg></a>
             </div>
         </div>
-        <div class="countriesCards">
-            <span class="card">
-                <span class="countryFlag"><img src="https://flagcdn.com/in.svg" alt=""></span>
-                <span class="countryName">India</span>
-                <span class="countryDetail">
-                    <span class="countryCapital">Capital: New Delhi</span>
-                    <span class="countryLang">Languages: Hindi</span>
-                    <span class="countryPopulation">Population: 98,897,988</span>
-                </span>
-            </span>
-        </div>
+        <div class="countriesCards"></div>
         <div class="statsDiv">
-            <div class="statButtons">
-                <button id="statPopulationBtn">Population</button>
-                <button id="statLanguageBtn">Language</button>
+            <div class="statFuncWrapper">
+                <div class="statButtons">
+                    <button class = "btn stat__btn active" id="statPopulationBtn">Population</button>
+                    <button class = "btn stat__btn" id="statLanguageBtn">Language</button>
+                </div>
+                <span class="statDesc"></span>
             </div>
-            <span class="statDesc"></span>
-            <div class="statBars"></div>
+            <div class="statBarsWrapper" id="statBarDiv"></div>
         </div>
 
     </main>
