@@ -4,8 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
+    <main>
+        <h1>Validating Web Forms</h1>
+        <form>
+            <div class="inputWrapper">
+                <label for="fName">First Name</label>
+                <input type="text" name="first_name" id="fName" placeholder="e.g.: John" autocomplete="name">
+                <span class="errorSpan">First Name must be alphanumeric and should contain 3-16 characters</span>
+            </div>
+            <div class="inputWrapper">
+                <label for="lName">Last Name</label>
+                <input type="text" name="last_name" id="lName" placeholder="e.g.: Doe" autocomplete="name">
+                <span class="errorSpan">Last Name must be alphanumeric and should contain 3-16 characters</span>
+            </div>
+            <div class="inputWrapper">
+                <label for="eMail">E-Mail</label>
+                <input type="email" name="email" id="eMail" placeholder="e.g.: johndoe123@example.com" autocomplete="username">
+                <span class="errorSpan">E-mail must be a valid address. eg: johndoe123@example.com</span>
+            </div>
+            <div class="inputWrapper">
+                <label for="pswd">Password</label>
+                <input type="password" name="password" id="pswd" placeholder="e.g.: John@doe1298#" autocomplete="current-password">
+                <span class="errorSpan">Password must be alphanumeric (@, _, and - are allowed) and between 8-20 characters</span>
+            </div>
+            <div class="inputWrapper">
+                <label for="tel_phone">Telephone</label>
+                <input type="tel" name="tel_phone" id="tel_phone" placeholder="e.g.: 98765543210" autocomplete="tel">
+                <span class="errorSpan">A valid Telephone number (10-11 digit) </span>
+            </div>
+            <div class="inputWrapper valid">
+                <label for="bio">Your Bio</label>
+                <input type="text" name="bio" id="bio" placeholder="e.g.: Software Developer" autocomplete="bio">
+                <span class="errorSpan">Bio must contain alphabet, underscore, hyphen and must be of 8-50 characters</span>
+            </div>
+            <div class="smtBtn">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </main>
     <script src="./index.js"></script>
 </body>
 </html>
