@@ -18,4 +18,3 @@ const isValidBio = (bio) => {
     let r = /^[,.a-zA-Z \w _-]{8,50}$/g;
     return r.test(bio);
 };
-console.log(isValidBio("Hey there. I am Chudamani. An Entrepreneur "))
