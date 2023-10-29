@@ -132,10 +132,6 @@ form{
     outline-color: green;
     color: rgb(2, 98, 2);
 }
-
-.inputWrapper.valid input::after{
-    content : 'This is after psedeo element'
-}
 /* Valid Input CSS End */
 
 @media screen and (max-width: 767px){
