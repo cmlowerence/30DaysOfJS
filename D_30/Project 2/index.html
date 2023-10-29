@@ -9,7 +9,7 @@
 <body>
     <main>
         <h1>Validating Web Forms</h1>
-        <form>
+        <form id = "form">
             <div class="inputWrapper">
                 <label for="fName">First Name</label>
                 <input type="text" name="first_name" id="fName" placeholder="e.g. : John" autocomplete="name">
@@ -47,13 +47,13 @@
                 </span>
                 <span class="errorSpan">A valid Telephone number (10-11 digit) (without Country Code) </span>
             </div>
-            <div class="inputWrapper valid">
+            <div class="inputWrapper">
                 <label for="bio">Your Bio</label>
                 <input type="text" name="bio" id="bio" placeholder="e.g. : Software Developer" autocomplete="bio">
                 <span class="errorSpan">Bio must contain only alphabet, underscore, hyphen and must be of 8-50 characters</span>
             </div>
             <div class="smtBtn">
-                <button type="submit">Submit</button>
+                <button type="submit" id ="submit_btn" disabled>Submit</button>
             </div>
         </form>
     </main>
