@@ -1,1 +1,0 @@
-${(['a','e','i','o','u'].includes(job.charAt(0).toLowerCase()))?'an':'a'}
